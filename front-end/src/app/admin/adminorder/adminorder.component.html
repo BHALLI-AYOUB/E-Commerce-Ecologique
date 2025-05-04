@@ -1,0 +1,78 @@
+<div class="eco-orders">
+  <!-- Superposition décorative avec motif de feuilles -->
+  <div class="leaf-pattern"></div>
+
+  <h2>
+    <span class="leaf-icon">🍃</span>
+    Commandes
+    <span class="leaf-icon">🍃</span>
+  </h2>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+
+  <!-- Graphique des tendances des commandes -->
+  <section class="chart-section">
+    <h3>Tendances des Commandes</h3>
+    <!-- Initialisé via Chart.js ou ng2-charts dans component.ts -->
+    <canvas id="ordersChart"></canvas>
+  </section>
+
+  <!-- Filtres -->
+  <div class="filter-container">
+    <div class="filter-group">
+      <label for="statusFilter">Filtrer par Statut</label>
+      <select id="statusFilter" [(ngModel)]="statusFilter" (change)="handleFilterChange()">
+        <option value="">Tous</option>
+        <option *ngFor="let status of OderStatus" [value]="status">{{ status }}</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="searchStatus">Rechercher par Statut</label>
+      <select id="searchStatus" [(ngModel)]="searchStatus" (change)="handleSearchStatusChanged()">
+        <option value="">Tous</option>
+        <option *ngFor="let status of OderStatus" [value]="status">{{ status }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Tableau des commandes -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>ID Commande</th>
+          <th>Client</th>
+          <th>Statut</th>
+          <th>Prix (€)</th>
+          <th>Date de Commande</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of filterOrders">
+          <td>{{ order.id }}</td>
+          <td>{{ order.user.name }}</td>
+          <td>
+            <span class="status-tag {{ order.status | lowercase }}">
+              {{ order.status }}
+            </span>
+          </td>
+          <td>{{ order.price.toFixed(2) }}</td>
+          <td>{{ order.createdAt | date: 'dd/MM/yyyy' }}</td>
+          <td>
+            <button class="btn details" (click)="navigateToOrderDetailsPage(order.id)">
+              <span class="btn-icon">🔍</span> Détails
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+</div>

@@ -1,0 +1,532 @@
+/* home.component.scss or home.component.css */
+
+/* Variables */
+:root {
+  --eco-primary: #4CAF50;
+  --eco-primary-dark: #388E3C;
+  --eco-primary-light: #C8E6C9;
+  --eco-accent: #8BC34A;
+  --eco-accent-dark: #689F38;
+  --eco-text-primary: #212121;
+  --eco-text-secondary: #757575;
+  --eco-divider: #BDBDBD;
+  --eco-background: #F9FBF7;
+  --eco-error: #F44336;
+  --eco-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --eco-transition: all 0.3s ease;
+}
+
+/* Base */
+.home {
+  padding: 30px;
+  margin-top: 9rem;
+  background-color: var(--eco-background);
+  border-radius: 12px;
+  box-shadow: var(--eco-shadow);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: var(--eco-transition);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.eco-friendly-home {
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-friendly-home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--eco-primary), var(--eco-accent));
+  z-index: 1;
+}
+
+/* Error message */
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Ajoute ici la suite du style : .eco-banner, .eco-stats, .eco-stat-item, .progress-bar, etc. */
+
+  .error-icon {
+    margin-right: 12px;
+    color: var(--eco-error);
+  }
+  
+  .error-message {
+    color: var(--eco-error);
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  /* Eco Banner */
+  .eco-banner {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(139, 195, 74, 0.9));
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 30px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .eco-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='rgba(255,255,255,0.2)' d='M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.54-4.46a1 1 0 0 1 1.42-1.42 3 3 0 0 0 4.24 0 1 1 0 0 1 1.42 1.42 5 5 0 0 1-7.08 0zM9 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    opacity: 0.2;
+    transform: rotate(45deg);
+  }
+  
+  .eco-banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .eco-icon {
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .eco-banner h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .eco-banner p {
+    font-size: 16px;
+    margin: 0;
+    max-width: 80%;
+    opacity: 0.9;
+  }
+  
+  /* Eco Stats Section */
+  .eco-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .eco-stat-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .eco-stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .eco-stat-icon {
+    background-color: var(--eco-primary-light);
+    color: var(--eco-primary-dark);
+    padding: 12px;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .eco-stat-info {
+    flex-grow: 1;
+  }
+  
+  .eco-stat-info h4 {
+    margin: 0 0 10px 0;
+    color: var(--eco-text-primary);
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background-color: #E0E0E0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  
+  .progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--eco-primary), var(--eco-accent));
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+  }
+  
+  .eco-stat-info span {
+    font-size: 14px;
+    color: var(--eco-text-secondary);
+    display: block;
+  }
+  
+  /* Green Impact Chart */
+  .green-impact-chart {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .green-impact-chart h3 {
+    margin: 0 0 20px 0;
+    color: var(--eco-text-primary);
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .chart-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 200px;
+  }
+  
+  .chart-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+  }
+  
+  .chart-label {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--eco-text-secondary);
+    text-align: center;
+  }
+  
+  .chart-bar {
+    width: 50px;
+    height: 150px;
+    background-color: #E0E0E0;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .chart-bar-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, var(--eco-primary-dark), var(--eco-primary));
+    border-radius: 5px 5px 0 0;
+    transition: height 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .chart-value {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  
+  /* Product Section */
+  .product-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .product-section h3 {
+    margin: 0 0 20px 0;
+    color: var(--eco-text-primary);
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  /* Eco Pagination */
+  .eco-pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .home {
+      padding: 20px;
+      margin-top: 6rem;
+    }
+    
+    .eco-banner h2 {
+      font-size: 24px;
+    }
+    
+    .eco-banner p {
+      font-size: 14px;
+      max-width: 100%;
+    }
+    
+    .eco-stats {
+      grid-template-columns: 1fr;
+    }
+    
+    .chart-container {
+      flex-wrap: wrap;
+    }
+    
+    .chart-bar-container {
+      width: 45%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home {
+      padding: 15px;
+      margin-top: 4rem;
+    }
+    
+    .chart-bar-container {
+      width: 100%;
+    }
+    
+    .eco-stat-item {
+      flex-direction: column;
+    }
+    
+    .eco-stat-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .eco-content {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  /* Enhanced styling for existing components */
+  app-productlist {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+  }
+  
+  app-pagination {
+    display: block;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.5s ease-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--eco-primary-light);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--eco-primary);
+  }
+  
+  /* Button and interactive elements enhancements */
+  button, 
+  a.button, 
+  .interactive-element {
+    background-color: var(--eco-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+  }
+  
+  button:hover,
+  a.button:hover,
+  .interactive-element:hover {
+    background-color: var(--eco-primary-dark);
+    transform: translateY(-2px);
+  }
+  
+  button:active,
+  a.button:active,
+  .interactive-element:active {
+    transform: translateY(0);
+  }
+  
+  /* Focus state for accessibility */
+  button:focus,
+  a:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid var(--eco-accent);
+    outline-offset: 2px;
+  }
+  
+  /* Loading effects */
+  .loading-shimmer {
+    background: linear-gradient(90deg, 
+      rgba(229, 229, 229, 0.8) 0%, 
+      rgba(240, 240, 240, 0.8) 50%, 
+      rgba(229, 229, 229, 0.8) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .eco-stat-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .circular-chart {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #4CAF50 0% 85%, /* Vert */
+      #fff 85% 100%   /* Blanc */
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .eco-details h4 {
+    margin: 0 0 5px;
+  }
+  
+  .progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 150px;
+    height: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .progress {
+    background-color: #4CAF50;
+    height: 100%;
+  }
+  .green-impact-chart {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+  }
+  
+  .green-impact-chart h3 {
+    margin-bottom: 20px;
+    color: #2e7d32;
+    font-size: 20px;
+  }
+  
+  .chart-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  
+  .chart-bar-container {
+    text-align: center;
+    width: 100px;
+  }
+  
+  .chart-label {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .chart-bar {
+    width: 100%;
+    height: 150px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .chart-bar-fill {
+    width: 100%;
+    background-color: #4CAF50;
+    position: relative;
+    transition: height 0.5s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .chart-value {
+    position: absolute;
+    top: -20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2e7d32;
+  }
+    

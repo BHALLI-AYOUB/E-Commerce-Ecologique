@@ -1,0 +1,243 @@
+/* ===== Ecological Theme Variables ===== */
+:root {
+    --green-dark:   #1e4d2b;
+    --green-mid:    #4caf7a;
+    --green-light:  #e0f2f1;
+    --accent:       #ffeb3b;
+    --white:        #ffffff;
+    --shadow:       rgba(30, 77, 43, 0.2);
+    --error-red:    #e53935;
+    --status-pending:    #ff9800;
+    --status-completed:  #4caf50;
+    --status-cancelled:  #f44336;
+  }
+  
+  /* ===== Container ===== */
+  .eco-orders {
+    position: relative;
+    max-width: 1100px;
+    margin: 3rem auto 6rem auto;
+    padding: 2rem;
+    background: linear-gradient(145deg, var(--green-light), var(--white));
+    border-radius: 1.5rem;
+    box-shadow: 0 1rem 2rem var(--shadow);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  /* Leaf-pattern overlay */
+  .leaf-pattern {
+    position: absolute;
+    top: -60px; left: -60px;
+    width: 220%; height: 220%;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%234caf7a' opacity='0.06' d='M40 0 C50 20, 30 20, 40 0 Z'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    transform: rotate(12deg);
+    pointer-events: none;
+  }
+  
+  /* ===== Headings & Icons ===== */
+  .eco-orders h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--green-dark);
+    text-shadow: 1px 1px 3px var(--shadow);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .leaf-icon {
+    display: inline-block;
+    animation: swing 4s ease-in-out infinite;
+  }
+  @keyframes swing {
+    0%,100% { transform: rotate(0deg); }
+    50%     { transform: rotate(8deg) translateY(-4px); }
+  }
+  
+  /* ===== Error Message ===== */
+  .error {
+    color: var(--error-red);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ===== Chart Section ===== */
+  .chart-section {
+    position: relative;
+    z-index: 1;
+    background: var(--white);
+    padding: 1.8rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 0.8rem 1.8rem var(--shadow);
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  .chart-section h3 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+  }
+  .chart-section canvas {
+    width: 100% !important;
+    height: 300px !important;
+  }
+  
+  /* ===== Filters ===== */
+  .filter-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: 1.8rem;
+    position: relative;
+    z-index: 1;
+  }
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .filter-group label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--green-dark);
+  }
+  .filter-group select {
+    padding: 0.6rem 0.8rem;
+    border: 2px solid transparent;
+    border-radius: 0.6rem;
+    background: var(--white);
+    box-shadow: inset 0 0.2rem 0.4rem rgba(0,0,0,0.05);
+    transition: border-image 0.4s ease;
+  }
+  .filter-group select:focus {
+    outline: none;
+    border-image: linear-gradient(
+      to right,
+      var(--green-mid),
+      var(--accent),
+      var(--green-mid)
+    ) 1;
+  }
+  
+  /* ===== Table Styling ===== */
+  .table-wrapper {
+    overflow-x: auto;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    background: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.05);
+  }
+  th, td {
+    padding: 1rem 1.2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  th {
+    background: var(--green-mid);
+    color: var(--white);
+    font-weight: 600;
+  }
+  tbody tr:nth-child(even) {
+    background: var(--green-light);
+  }
+  tbody tr:hover {
+    background: var(--accent);
+    transition: background 0.3s;
+  }
+  
+  /* Status Tags */
+  .status-tag {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: capitalize;
+  }
+  .status-tag.pending    { background: var(--status-pending); }
+  .status-tag.completed  { background: var(--status-completed); }
+  .status-tag.cancelled  { background: var(--status-cancelled); }
+  
+  /* ===== Buttons ===== */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--green-mid);
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.1);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  }
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, var(--white) 10%, transparent 10.5%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    border-radius: 50%;
+    transition: transform 0.4s, opacity 0.4s;
+  }
+  .btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  }
+  .btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  .btn.details { background: var(--accent); color: var(--green-dark); }
+  .btn.details:hover { background: #f7e64b; }
+  
+  /* ===== Pagination Wrapper (if needed) ===== */
+  app-pagination {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 992px) {
+    .filter-container { flex-direction: column; gap: 1rem; }
+    table { min-width: 100%; }
+  }
+  @media (max-width: 600px) {
+    .eco-orders { padding: 1.5rem; }
+    h2 { font-size: 2rem; }
+    .chart-section canvas { height: 240px !important; }
+  }
+  

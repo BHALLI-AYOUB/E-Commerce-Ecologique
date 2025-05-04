@@ -1,0 +1,133 @@
+<div class="eco-products-container">
+  <!-- Message d'erreur -->
+  <div *ngIf="error" class="eco-error-container">
+    <div class="eco-error-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+    </div>
+    <p class="eco-error-message">{{error}}</p>
+    <button class="eco-retry-button">
+      <span class="eco-retry-icon">↻</span>
+      <span>Réessayer</span>
+    </button>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="eco-products-wrapper" *ngIf="!error">
+    <!-- Bannière écologique -->
+    <div class="eco-banner">
+      <div class="eco-banner-content">
+        <div class="eco-banner-icon">🌿</div>
+        <div class="eco-banner-text">
+          <h2>Achat Durable</h2>
+          <p>Tous les produits sont écologiques et sourcés de manière durable</p>
+        </div>
+        <div class="eco-impact-stats">
+          <div class="eco-stat">
+            <span class="eco-stat-value">1.2K</span>
+            <span class="eco-stat-label">Arbres Sauvés</span>
+          </div>
+          <div class="eco-stat">
+            <span class="eco-stat-value">5T</span>
+            <span class="eco-stat-label">CO₂ Réduit</span>
+          </div>
+          <div class="eco-stat">
+            <span class="eco-stat-value">87%</span>
+            <span class="eco-stat-label">Recyclable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Graphique d'impact environnemental -->
+    <div class="eco-impact-chart">
+      <h3 class="eco-chart-title">Votre Impact Environnemental</h3>
+      <div class="eco-chart-container">
+        <div class="eco-chart-bar">
+          <div class="eco-chart-label">Compensation Carbone</div>
+          <div class="eco-chart-track">
+            <div class="eco-chart-fill carbon" style="width: 75%">75%</div>
+          </div>
+        </div>
+        <div class="eco-chart-bar">
+          <div class="eco-chart-label">Eau Économisée</div>
+          <div class="eco-chart-track">
+            <div class="eco-chart-fill water" style="width: 62%">62%</div>
+          </div>
+        </div>
+        <div class="eco-chart-bar">
+          <div class="eco-chart-label">Plastique Réduit</div>
+          <div class="eco-chart-track">
+            <div class="eco-chart-fill plastic" style="width: 83%">83%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Contrôles de filtre et tri -->
+    <div class="eco-controls">
+      <div class="eco-filter-controls">
+        <div class="eco-filter-badge">
+          <span class="eco-filter-icon">♻️</span>
+          <span>Filtrer par :</span>
+        </div>
+        <div class="eco-filter-options">
+          <button class="eco-filter-btn active">Tous</button>
+          <button class="eco-filter-btn">Carbone Neutre</button>
+          <button class="eco-filter-btn">Sans Plastique</button>
+          <button class="eco-filter-btn">Biologique</button>
+          <button class="eco-filter-btn">Végétalien</button>
+        </div>
+      </div>
+      <div class="eco-sort-controls">
+        <select class="eco-sort-select">
+          <option>Impact Écologique : Du plus élevé au plus bas</option>
+          <option>Impact Écologique : Du plus bas au plus élevé</option>
+          <option>Prix : Du plus élevé au plus bas</option>
+          <option>Prix : Du plus bas au plus élevé</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Liste des produits - Garder le composant original avec liaison -->
+    <div class="eco-products-grid">
+      <app-productlist [products]="products"></app-productlist>
+    </div>
+
+    <!-- Pagination - Garder le composant original avec les liaisons -->
+    <div class="eco-pagination-wrapper">
+      <app-pagination 
+        [currentPage]="currentPage" 
+        [totalPages]="totalPages" 
+        (pageChange)="onPageChange($event)">
+      </app-pagination>
+    </div>
+
+    <!-- Pied de page écologique -->
+    <div class="eco-footer">
+      <div class="eco-certification">
+        <div class="eco-cert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="eco-cert-text">
+          <p>Tous les produits sont certifiés écologiques et suivent des pratiques durables</p>
+        </div>
+      </div>
+      <div class="eco-commitment">
+        <div class="eco-commitment-badge">Notre Engagement envers la Planète</div>
+        <div class="eco-commitment-icons">
+          <span class="eco-icon" title="Matériaux Durables">🌱</span>
+          <span class="eco-icon" title="Énergie Renouvelable">⚡</span>
+          <span class="eco-icon" title="Carbone Neutre">🌍</span>
+          <span class="eco-icon" title="Zéro Déchet">♻️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

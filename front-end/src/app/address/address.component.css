@@ -1,0 +1,405 @@
+/* Eco-Friendly Address Form Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #4CAF50;
+  --primary-dark: #388E3C;
+  --primary-light: #C8E6C9;
+  --accent-color: #8BC34A;
+  --leaf-color: #81C784;
+  --text-color: #2E7D32;
+  --text-dark: #1B5E20;
+  --text-light: #A5D6A7;
+  --error-color: #F44336;
+  --background-color: #F1F8E9;
+  --card-color: #FFFFFF;
+  --input-bg: #F9FFF6;
+  --input-border: #E8F5E9;
+  --input-focus: #DCEDC8;
+  --shadow-color: rgba(76, 175, 80, 0.2);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Container Styles */
+.eco-address-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(145deg, #E8F5E9, #F1F8E9);
+}
+
+.eco-address-card {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  background: var(--card-color);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 12px 30px var(--shadow-color);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.eco-address-card:hover {
+  box-shadow: 0 16px 40px var(--shadow-color);
+  transform: translateY(-5px);
+}
+
+/* Decorative Elements */
+.leaf-decoration {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: var(--leaf-color);
+  opacity: 0.1;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.leaf-decoration.left {
+  top: -50px;
+  left: -50px;
+}
+
+.leaf-decoration.right {
+  bottom: -50px;
+  right: -50px;
+}
+
+/* Header Styles */
+.eco-address-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.eco-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem;
+}
+
+.eco-svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary-color);
+}
+
+.eco-title {
+  color: var(--text-dark);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.eco-subtitle {
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* Form Styles */
+.eco-form {
+  position: relative;
+  z-index: 1;
+}
+
+.eco-form-row {
+  margin-bottom: 1.5rem;
+}
+
+.eco-form-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.eco-form-group {
+  position: relative;
+}
+
+.eco-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.eco-input-wrapper {
+  position: relative;
+}
+
+.eco-input {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 2.5rem;
+  border: 2px solid var(--input-border);
+  border-radius: 10px;
+  background-color: var(--input-bg);
+  color: var(--text-dark);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: var(--transition);
+}
+
+.eco-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px var(--input-focus);
+}
+
+.eco-input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eco-input-icon .eco-svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--primary-color);
+  opacity: 0.8;
+}
+
+/* Error Styles */
+.eco-error {
+  color: var(--error-color);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.eco-error::before {
+  content: "!";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background-color: var(--error-color);
+  color: white;
+  border-radius: 50%;
+  margin-right: 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Alert Box */
+.eco-alert {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background-color: rgba(244, 67, 54, 0.1);
+  border-left: 4px solid var(--error-color);
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.eco-alert-icon {
+  margin-right: 0.8rem;
+}
+
+.eco-alert-icon .eco-svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--error-color);
+}
+
+.eco-alert-text {
+  color: var(--error-color);
+  font-size: 0.9rem;
+}
+
+/* Chart Styles */
+.eco-chart-section {
+  background-color: var(--input-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--input-border);
+}
+
+.eco-chart-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.eco-chart-container {
+  width: 100%;
+}
+
+.eco-chart-bar {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.eco-chart-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 4px;
+  transition: width 1.5s ease-in-out;
+  animation: pulse 2s infinite;
+}
+
+.eco-chart-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  margin-bottom: 12px;
+}
+
+.eco-chart-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  font-style: italic;
+}
+
+/* Button Styles */
+.eco-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  overflow: hidden;
+  position: relative;
+}
+
+.eco-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.eco-button:hover {
+  box-shadow: 0 6px 20px var(--shadow-color);
+  transform: translateY(-2px);
+}
+
+.eco-button:hover::before {
+  transform: translateX(100%);
+}
+
+.eco-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.eco-button-text {
+  margin-right: 8px;
+}
+
+.eco-button-icon {
+  display: flex;
+  align-items: center;
+}
+
+.eco-button-icon .eco-svg {
+  fill: white;
+  width: 18px;
+  height: 18px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .eco-address-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .eco-form-row-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .eco-title {
+    font-size: 1.5rem;
+  }
+  
+  .eco-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Focus styles for accessibility */
+input:focus, button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* Input type number arrow removal */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Input autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-dark);
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-bg) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

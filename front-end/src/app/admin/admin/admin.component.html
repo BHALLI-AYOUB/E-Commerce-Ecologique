@@ -1,0 +1,31 @@
+<div class="admin">
+  <!-- Accents décoratifs SVG/feuilles -->
+  <div class="leaf-pattern"></div>
+
+  <h1>
+    <span class="leaf-icon">🍃</span>
+    Bienvenue Administrateur
+    <span class="leaf-icon">🍃</span>
+  </h1>
+
+  <div class="button-container">
+    <button class="btn" (click)="navigateTo('/admin/categories')">
+      <span class="btn-icon">🌱</span>
+      Gérer les Catégories
+    </button>
+    <button class="btn" (click)="navigateTo('/admin/products')">
+      <span class="btn-icon">🛍️</span>
+      Gérer les Produits
+    </button>
+    <button class="btn" (click)="navigateTo('/admin/orders')">
+      <span class="btn-icon">📦</span>
+      Gérer les Commandes
+    </button>
+  </div>
+
+  <section class="chart-section">
+    <h2>Aperçu des Ventes Éco-responsables</h2>
+    <!-- Supposons que vous instanciez Chart.js (ou ng2-charts) dans le fichier component.ts sur #ecoChart -->
+    <canvas id="ecoChart"></canvas>
+  </section>
+</div>

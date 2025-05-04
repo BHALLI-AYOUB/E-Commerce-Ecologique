@@ -1,0 +1,248 @@
+/* ===== Ecological Theme Variables ===== */
+:root {
+    --green-dark:   #1b5e20;
+    --green-mid:    #388e3c;
+    --green-light:  #e8f5e9;
+    --accent:       #cddc39;
+    --white:        #ffffff;
+    --shadow:       rgba(27, 94, 32, 0.1);
+    --error-red:    #d32f2f;
+    --status-pending:   #ff9800;
+    --status-shipped:   #1976d2;
+    --status-delivered: #4caf50;
+    --status-cancelled: #f44336;
+  }
+  
+  /* ===== Container ===== */
+  .eco-order-details {
+    position: relative;
+    max-width: 960px;
+    margin: 3rem auto 6rem auto;
+    padding: 2.5rem;
+    background: linear-gradient(150deg, var(--green-light), var(--white));
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem var(--shadow);
+    overflow: hidden;
+    animation: fadeInScale 0.8s ease-out;
+  }
+  
+  /* Leaf-pattern overlay */
+  .leaf-pattern {
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 240%; height: 240%;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23388e3c' opacity='0.06' d='M40,0 C50,20 30,20 40,0 Z'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    transform: rotate(15deg);
+    pointer-events: none;
+  }
+  
+  /* ===== Headings & Icons ===== */
+  .eco-order-details h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--green-dark);
+    text-shadow: 1px 1px 3px var(--shadow);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .leaf-icon {
+    display: inline-block;
+    animation: sway 4s ease-in-out infinite;
+  }
+  @keyframes sway {
+    0%,100% { transform: rotate(0deg); }
+    50%     { transform: rotate(8deg) translateY(-4px); }
+  }
+  
+  /* ===== Messages ===== */
+  .message {
+    color: var(--green-mid);
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+  }
+  .loading {
+    text-align: center;
+    font-style: italic;
+    color: var(--green-dark);
+    margin-top: 2rem;
+  }
+  
+  /* ===== Chart Section ===== */
+  .chart-section {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.8rem 1.8rem var(--shadow);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  .chart-section h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+  }
+  .chart-section canvas {
+    width: 100% !important;
+    height: 240px !important;
+    display: block;
+    margin: auto;
+  }
+  
+  /* ===== Item Details Group ===== */
+  .item-details {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.8rem 1.8rem var(--shadow);
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+    animation: fadeInScale 0.8s ease-out;
+  }
+  .info-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .info {
+    background: var(--green-light);
+    padding: 1.2rem 1rem;
+    border-radius: 1rem;
+  }
+  .info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--green-dark);
+  }
+  .info p {
+    margin: 0.4rem 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  .product-info img {
+    width: 100%;
+    border-radius: 0.8rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.05);
+  }
+  
+  /* ===== Status Tags ===== */
+  .status-tag {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: capitalize;
+  }
+  .status-tag.pending    { background: var(--status-pending); }
+  .status-tag.shipped    { background: var(--status-shipped); }
+  .status-tag.delivered  { background: var(--status-delivered); }
+  .status-tag.cancelled  { background: var(--status-cancelled); }
+  
+  /* ===== Status Update Controls ===== */
+  .status-update {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .status-update h3 {
+    font-size: 1.3rem;
+    color: var(--green-dark);
+    margin-right: 1rem;
+  }
+  .status-update select {
+    padding: 0.6rem 0.8rem;
+    border: 2px solid transparent;
+    border-radius: 0.6rem;
+    background: var(--white);
+    box-shadow: inset 0 0.2rem 0.4rem rgba(0,0,0,0.05);
+    transition: border-image 0.4s ease;
+  }
+  .status-update select:focus {
+    outline: none;
+    border-image: linear-gradient(
+      to right,
+      var(--green-mid),
+      var(--accent),
+      var(--green-mid)
+    ) 1;
+  }
+  .btn-update {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--green-mid);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.1);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  }
+  .btn-update::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, var(--white) 10%, transparent 10.5%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    border-radius: 50%;
+    transition: transform 0.4s, opacity 0.4s;
+  }
+  .btn-update:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  }
+  .btn-update:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  .btn-icon {
+    font-size: 1.2rem;
+    transition: transform 0.4s;
+  }
+  .btn-update:hover .btn-icon {
+    transform: rotate(360deg) scale(1.2);
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .info-group { grid-template-columns: 1fr; }
+    .status-update { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .eco-order-details { padding: 1.5rem; }
+    h1 { font-size: 2rem; }
+  }
+  

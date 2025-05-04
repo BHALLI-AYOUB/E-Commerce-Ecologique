@@ -1,0 +1,79 @@
+<div class="eco-product-form">
+  <!-- Superposition décorative avec motif de feuilles -->
+  <div class="leaf-pattern"></div>
+
+  <form (submit)="handleSubmit()">
+    <h2>
+      <span class="leaf-icon">🍃</span>
+      Ajouter un Produit
+      <span class="leaf-icon">🍃</span>
+    </h2>
+
+    <p class="message" *ngIf="message">{{ message }}</p>
+
+    <div class="input-group file-group">
+      <label for="image">Image du Produit</label>
+      <input id="image" type="file" (change)="handleImage($event)" />
+    </div>
+
+    <div class="input-group">
+      <label for="category">Catégorie</label>
+      <select id="category" [(ngModel)]="categoryId" name="category" required>
+        <option value="">Sélectionner une catégorie</option>
+        <option *ngFor="let cat of categories" [value]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="name">Nom du Produit</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Entrez le nom du produit"
+        [(ngModel)]="name"
+        name="name"
+        required
+      />
+    </div>
+
+    <div class="input-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        rows="4"
+        placeholder="Entrez la description du produit"
+        [(ngModel)]="description"
+        name="description"
+        required
+      ></textarea>
+    </div>
+
+    <div class="input-group">
+      <label for="price">Prix (€)</label>
+      <input
+        id="price"
+        type="number"
+        placeholder="0.00"
+        [(ngModel)]="price"
+        name="price"
+        required
+        step="0.01"
+        min="0"
+      />
+    </div>
+
+    <button type="submit" class="btn">
+      <span class="btn-icon">➕</span>
+      Ajouter le Produit
+    </button>
+  </form>
+
+  <!-- Section graphique à thème écologique -->
+  <section class="chart-section">
+    <h3>Vue d'ensemble des Ajouts de Produits</h3>
+    <!-- Initialisé dans component.ts avec Chart.js ou ng2-charts -->
+    <canvas id="productChart"></canvas>
+  </section>
+</div>

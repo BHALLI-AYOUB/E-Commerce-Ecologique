@@ -1,0 +1,150 @@
+<div class="eco-category-container">
+  <!-- État d'erreur -->
+  <ng-container *ngIf="error; else categoryList">
+    <div class="eco-error">
+      <div class="eco-error-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+      <p class="eco-error-message">{{error}}</p>
+    </div>
+  </ng-container>
+
+  <!-- Liste des catégories -->
+  <ng-template #categoryList>
+    <div class="eco-content">
+      <!-- Section d'en-tête -->
+      <div class="eco-header">
+        <div class="eco-header-leaf left"></div>
+        <h2 class="eco-title">Catégories Durables</h2>
+        <div class="eco-header-leaf right"></div>
+      </div>
+
+      <!-- Description -->
+      <div class="eco-description">
+        <p>Explorez nos catégories de produits écologiques. Chaque catégorie propose des articles issus de sources durables, contribuant ainsi à réduire l'impact environnemental.</p>
+      </div>
+
+      <!-- Section de l'impact environnemental -->
+      <div class="eco-impact">
+        <div class="eco-impact-header">
+          <svg class="eco-chart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20V10"></path>
+            <path d="M18 20V4"></path>
+            <path d="M6 20v-6"></path>
+          </svg>
+          <h3>Votre Impact Environnemental</h3>
+        </div>
+        <div class="eco-chart">
+          <div class="eco-chart-item">
+            <div class="eco-chart-label">Empreinte Carbone</div>
+            <div class="eco-chart-bar">
+              <div class="eco-chart-progress carbon" style="width: 65%"></div>
+            </div>
+            <div class="eco-chart-value">-65%</div>
+          </div>
+          <div class="eco-chart-item">
+            <div class="eco-chart-label">Conservation de l'Eau</div>
+            <div class="eco-chart-bar">
+              <div class="eco-chart-progress water" style="width: 80%"></div>
+            </div>
+            <div class="eco-chart-value">-80%</div>
+          </div>
+          <div class="eco-chart-item">
+            <div class="eco-chart-label">Réduction des Déchets</div>
+            <div class="eco-chart-bar">
+              <div class="eco-chart-progress waste" style="width: 70%"></div>
+            </div>
+            <div class="eco-chart-value">-70%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grille des catégories -->
+      <div class="eco-categories">
+        <ul class="eco-category-grid">
+          <li class="eco-category-item" *ngFor="let category of categories" (click)="handleCategoryClick(category.id)">
+            <button class="eco-category-button">
+              <!-- Icône de catégorie (exemple) -->
+              <div class="eco-category-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 48px; height: 48px;">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                
+                  <!-- Adding a larger Emoji inside the SVG -->
+                  <text x="12" y="12" font-size="14" text-anchor="middle" alignment-baseline="middle" fill="currentColor">🌱</text>
+                </svg>
+                
+                
+              </div>
+              <!-- Nom de la catégorie -->
+              <span class="eco-category-name">{{category.name}}</span>
+              <!-- Badge écologique -->
+              <span class="eco-badge">Éco</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section des avantages écologiques -->
+      <div class="eco-benefits">
+        <div class="eco-benefit-item">
+          <div class="eco-benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h4>Approvisionnement Durable</h4>
+          <p>Tous nos produits sont issus de sources éthiques et ont un impact environnemental minimal</p>
+        </div>
+        <div class="eco-benefit-item">
+          <div class="eco-benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v19"></path>
+              <path d="M5 8c.963-1.926 3.963-4 7-4"></path>
+              <path d="M19 8c-.963-1.926-3.963-4-7-4"></path>
+              <path d="M5 16c.963 1.926 3.963 4 7 4"></path>
+              <path d="M19 16c-.963 1.926-3.963 4-7 4"></path>
+            </svg>
+          </div>
+          <h4>Neutre en Carbone</h4>
+          <p>Nous compensons 100 % des émissions de carbone liées à l'expédition et à nos opérations</p>
+        </div>
+        <div class="eco-benefit-item">
+          <div class="eco-benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 3H5a2 2 0 0 0-2 2v4"></path>
+              <path d="M12 12H6a2 2 0 0 0-2 2v4"></path>
+              <path d="M20 7h.01"></path>
+              <path d="M20 17h.01"></path>
+              <path d="M13 21h6"></path>
+              <path d="M19 21v-9"></path>
+              <path d="M13 3h6v9"></path>
+            </svg>
+          </div>
+          <h4>Emballages Recyclables</h4>
+          <p>Tous nos emballages sont fabriqués à partir de matériaux recyclés et sont entièrement recyclables</p>
+        </div>
+      </div>
+
+      <!-- Pied de page écologique -->
+      <div class="eco-footer">
+        <div class="eco-certification">
+          <div class="eco-cert-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+          </div>
+          <p>Tous les produits de notre boutique sont certifiés écologiques et suivent des pratiques durables</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

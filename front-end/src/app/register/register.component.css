@@ -1,0 +1,220 @@
+/* Eco Registration Styles */
+.eco-register-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.eco-register-card {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 12px 40px rgba(46, 125, 50, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nature-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.animated-tree {
+    width: 100px;
+    height: 100px;
+    fill: #2E7D32;
+    animation: treeSway 8s ease-in-out infinite;
+}
+
+.eco-title {
+    color: #1B5E20;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    margin: 1.5rem 0 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.eco-subtitle {
+    color: #81C784;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.eco-impact {
+    background: #F1F8E9;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.impact-meter {
+    height: 8px;
+    background: #C8E6C9;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #81C784 0%, #2E7D32 100%);
+    transition: width 1s ease;
+}
+
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1B5E20;
+    font-family: 'Poppins', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #81C784;
+    font-weight: 600;
+}
+
+.eco-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    fill: #81C784;
+    z-index: 2;
+}
+
+.eco-input {
+    width: 100%;
+    padding: 1.4rem 1.4rem 1.4rem 3.5rem;
+    border: 2px solid #C8E6C9;
+    border-radius: 14px;
+    font-size: 1rem;
+    color: #1B5E20;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(200,230,201,0.1);
+}
+
+.eco-input:focus {
+    outline: none;
+    border-color: #2E7D32;
+    box-shadow: 0 6px 20px rgba(46,125,50,0.15);
+}
+
+.eco-btn {
+    background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+    color: white !important;
+    padding: 1.4rem 2.4rem;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.eco-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(46,125,50,0.25);
+}
+
+.btn-leaf {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.eco-message {
+    text-align: center;
+    color: #EF5350;
+    font-weight: 500;
+    padding: 1.2rem;
+    border-radius: 10px;
+    background: rgba(239,83,80,0.1);
+    margin: 1.5rem 0;
+}
+
+.eco-login-link {
+    text-align: center;
+    color: #81C784;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+}
+
+.eco-link {
+    color: #2E7D32 !important;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.eco-link:hover {
+    color: #1B5E20 !important;
+}
+
+@keyframes treeSway {
+    0% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+
+@media (max-width: 600px) {
+    .eco-register-card {
+        padding: 1.8rem;
+        border-radius: 18px;
+    }
+    
+    .eco-title {
+        font-size: 2rem;
+    }
+    
+    .stat-value {
+        font-size: 1.3rem;
+    }
+    
+    .eco-input {
+        padding: 1.2rem 1.2rem 1.2rem 3rem;
+    }
+}

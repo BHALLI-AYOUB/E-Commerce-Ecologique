@@ -1,0 +1,322 @@
+/* CSS Styles for Eco-Friendly Product Details */
+:root {
+    --eco-primary: #4CAF50;
+    --eco-secondary: #8BC34A;
+    --eco-accent: #009688;
+    --eco-light: #E8F5E9;
+    --eco-dark: #2E7D32;
+    --eco-text: #33691E;
+    --eco-shadow: rgba(76, 175, 80, 0.2);
+    --eco-gradient-start: #81C784;
+    --eco-gradient-end: #4CAF50;
+  }
+  
+  .eco-product-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--eco-shadow);
+    overflow: hidden;
+    margin-bottom: 8rem;
+    transition: all 0.3s ease;
+  }
+  
+  .eco-product-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--eco-shadow);
+  }
+  
+  .eco-product-details {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  /* Product Image Styles */
+  .product-image-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  .product-image-container:hover .product-image {
+    transform: scale(1.05);
+  }
+  
+  .eco-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, var(--eco-gradient-start), var(--eco-gradient-end));
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .eco-icon {
+    font-size: 1.1rem;
+  }
+  
+  /* Product Info Styles */
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .product-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--eco-dark);
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .eco-rating {
+    display: flex;
+    gap: 3px;
+    color: var(--eco-secondary);
+    font-size: 1.2rem;
+  }
+  
+  .product-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+  }
+  
+  /* Features Section */
+  .product-features {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--eco-light);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--eco-text);
+  }
+  
+  .feature-icon {
+    font-size: 1.1rem;
+  }
+  
+  /* Price Section */
+  .price-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .price-tag {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--eco-dark);
+  }
+  
+  .eco-savings {
+    background-color: var(--eco-light);
+    color: var(--eco-text);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  /* Eco Impact Chart */
+  .eco-impact {
+    margin: 15px 0;
+  }
+  
+  .impact-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .chart-bar {
+    height: 12px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .chart-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--eco-gradient-start), var(--eco-gradient-end));
+    border-radius: 6px;
+    transition: width 1.5s ease-in-out;
+  }
+  
+  .chart-label {
+    font-size: 0.9rem;
+    color: var(--eco-text);
+    text-align: right;
+  }
+  
+  /* Action Buttons */
+  .action-section {
+    margin: 20px 0;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--eco-light);
+    padding: 5px;
+    border-radius: 30px;
+    width: fit-content;
+  }
+  
+  .qty-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--eco-gradient-start), var(--eco-gradient-end));
+    color: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .qty-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .quantity {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--eco-dark);
+    min-width: 30px;
+    text-align: center;
+  }
+  
+  .add-to-cart-btn {
+    background: linear-gradient(135deg, var(--eco-gradient-start), var(--eco-gradient-end));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px var(--eco-shadow);
+  }
+  
+  .add-to-cart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--eco-shadow);
+    background: linear-gradient(135deg, var(--eco-gradient-end), var(--eco-gradient-start));
+  }
+  
+  .cart-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* Certifications */
+  .eco-certifications {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+  
+  .cert-badge {
+    background-color: var(--eco-light);
+    color: var(--eco-text);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--eco-secondary);
+  }
+  
+  /* Loading State */
+  .eco-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    gap: 20px;
+  }
+  
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--eco-light);
+    border-top: 5px solid var(--eco-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .eco-product-details {
+      grid-template-columns: 1fr;
+    }
+    
+    .product-title {
+      font-size: 1.6rem;
+    }
+    
+    .price-tag {
+      font-size: 1.4rem;
+    }
+    
+    .product-features {
+      gap: 8px;
+    }
+  }
+  
+  /* Animation for Smoother Experience */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .eco-product-container {
+    animation: fadeIn 0.8s ease-out;
+  }

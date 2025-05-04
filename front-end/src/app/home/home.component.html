@@ -1,0 +1,132 @@
+<div class="home eco-friendly-home">
+  <!-- Message d'erreur -->
+  <div *ngIf="error" class="error-container">
+    <div class="error-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2z"/>
+      </svg>
+    </div>
+    <p class="error-message">{{error}}</p>
+  </div>
+
+  <!-- Contenu principal -->
+  <div *ngIf="!error" class="eco-content">
+    
+    <!-- Bannière éco -->
+    <div class="eco-banner">
+      <div class="eco-banner-content">
+        <div class="eco-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M7.5 18a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11zm8.5-11c0 2.21-1.79 4-4 4V5c2.21 0 4 1.79 4 4zm3 0c0 3.866-3.134 7-7 7V7c3.866 0 7 3.134 7 7z"/>
+          </svg>
+        </div>
+        <h2>Achats Éco-Responsables</h2>
+        <p>Consommez durablement et réduisez votre empreinte carbone</p>
+      </div>
+    </div>
+
+    <!-- Statistiques -->
+    <div class="eco-stats">
+      <div class="eco-stat-item">
+        <div class="eco-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M21 7a.78.78 0 0 0-.21-.5l-4-4.71A.77.77 0 0 0 16 1.5H8a.77.77 0 0 0-.79.71l-4 4.71a.78.78 0 0 0-.21.5v.5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/>
+            <path fill="currentColor" d="M3 11h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          </svg>
+        </div>
+        <div class="eco-stat-info">
+          <h4>Emballages Durables</h4>
+          <div class="progress-bar">
+            <div class="progress" style="width: 85%"></div>
+          </div>
+          <span>85% de matériaux recyclés</span>
+        </div>
+      </div>
+
+      <div class="eco-stat-item">
+        <div class="eco-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 2a8.06 8.06 0 0 1 6.26 3H5.74A8.06 8.06 0 0 1 12 4zm0 16a8 8 0 0 1-8-8 7.92 7.92 0 0 1 .74-3.35l6.78 6.78a1 1 0 0 0 1.42 0l6.78-6.78A7.92 7.92 0 0 1 20 12a8 8 0 0 1-8 8z"/>
+          </svg>
+        </div>
+        <div class="eco-stat-info">
+          <h4>Compensation Carbone</h4>
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%"></div>
+          </div>
+          <span>70% neutre en carbone</span>
+        </div>
+      </div>
+
+      <div class="eco-stat-item">
+        <div class="eco-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M7 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6zm7-3c0 1.657-1.343 3-3 3S8 6.657 8 5s1.343-3 3-3s3 1.343 3 3zm3 0a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/>
+            <path fill="currentColor" d="M10 13c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm7 0c-.29 0-.62.02-.97.05c1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+          </svg>
+        </div>
+        <div class="eco-stat-info">
+          <h4>Commerce Équitable</h4>
+          <div class="progress-bar">
+            <div class="progress" style="width: 90%"></div>
+          </div>
+          <span>90% de produits équitables</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Impact écologique -->
+    <div class="green-impact-chart">
+      <h3>Votre Impact Écologique</h3>
+      <div class="chart-container">
+        <div class="chart-bar-container">
+          <div class="chart-label">CO₂ économisé</div>
+          <div class="chart-bar">
+            <div class="chart-bar-fill" style="height: 65%">
+              <span class="chart-value">65%</span>
+            </div>
+          </div>
+        </div>
+        <div class="chart-bar-container">
+          <div class="chart-label">Eau économisée</div>
+          <div class="chart-bar">
+            <div class="chart-bar-fill" style="height: 78%">
+              <span class="chart-value">78%</span>
+            </div>
+          </div>
+        </div>
+        <div class="chart-bar-container">
+          <div class="chart-label">Énergie économisée</div>
+          <div class="chart-bar">
+            <div class="chart-bar-fill" style="height: 45%">
+              <span class="chart-value">45%</span>
+            </div>
+          </div>
+        </div>
+        <div class="chart-bar-container">
+          <div class="chart-label">Arbres plantés</div>
+          <div class="chart-bar">
+            <div class="chart-bar-fill" style="height: 90%">
+              <span class="chart-value">90%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    Produits éco
+    <div class="product-section">
+      <h3>Produits Durables</h3>
+      <app-productlist [products]="products"></app-productlist>
+    </div>
+
+    <!-- Pagination -->
+    <div class="eco-pagination-container">
+      <app-pagination 
+        [currentPage]="currentPage" 
+        [totalPages]="totalPages" 
+        (pageChange)="changePage($event)">
+      </app-pagination>
+    </div>
+  </div>
+</div>

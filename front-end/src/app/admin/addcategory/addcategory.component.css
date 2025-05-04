@@ -1,0 +1,214 @@
+/* ===== Theme Variables ===== */
+:root {
+    --green-dark:   #164d37;
+    --green-medium: #4dab7c;
+    --green-light:  #def7e5;
+    --accent:       #ffd54f;
+    --white:        #ffffff;
+    --shadow:       rgba(22, 77, 55, 0.15);
+    --error-red:    #e53935;
+  }
+  
+  /* ===== Container ===== */
+  .eco-form {
+    position: relative;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 3rem 2.5rem;
+    background: linear-gradient(150deg, var(--green-light), var(--white));
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem var(--shadow);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  /* Leaf-pattern overlay */
+  .leaf-pattern {
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 240%;
+    height: 240%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%234dab7c' opacity='0.07' d='M30 0 C40 20, 20 20, 30 0 Z'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    transform: rotate(12deg);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* ===== Headings & Icons ===== */
+  .eco-form h2 {
+    position: relative;
+    font-size: 2.3rem;
+    color: var(--green-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px var(--shadow);
+    z-index: 1;
+  }
+  .leaf-icon {
+    display: inline-block;
+    animation: sway 3s ease-in-out infinite;
+  }
+  @keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    50%      { transform: rotate(10deg) translateY(-4px); }
+  }
+  
+  /* ===== Message ===== */
+  .message {
+    position: relative;
+    z-index: 1;
+    background: var(--accent);
+    color: var(--green-dark);
+    padding: 1rem 1.2rem;
+    border-radius: 0.8rem;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 0.2rem 0.6rem rgba(0,0,0,0.1);
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  /* ===== Form Inputs ===== */
+  .input-group {
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 1;
+  }
+  .input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--green-dark);
+  }
+  .input-group input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    border-radius: 1.2rem;
+    background: var(--white);
+    box-shadow: inset 0 0.2rem 0.5rem rgba(0,0,0,0.05);
+    transition: border-image 0.4s ease, box-shadow 0.3s ease;
+  }
+  .input-group input:focus {
+    outline: none;
+    border-image: linear-gradient(
+        to right,
+        var(--green-medium),
+        var(--accent),
+        var(--green-medium)
+      )
+      1;
+    box-shadow: 0 0 0 0.2rem rgba(77,171,124,0.2);
+  }
+  .input-group input.invalid {
+    border: 2px solid var(--error-red);
+    animation: shake 0.3s ease;
+  }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25%,75% { transform: translateX(-5px); }
+    50%      { transform: translateX(5px); }
+  }
+  .input-group .error {
+    margin-top: 0.6rem;
+    color: var(--error-red);
+    font-size: 0.9rem;
+  }
+  
+  /* ===== Submit Button ===== */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--green-medium);
+    border: none;
+    border-radius: 5rem;
+    box-shadow: 0 0.4rem 1rem var(--shadow);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+  }
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--white) 10%, transparent 10.5%);
+    background-size: 10% 10%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    border-radius: 50%;
+    transition: transform 0.5s, opacity 0.5s;
+  }
+  .btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 0.6rem 1.2rem var(--shadow);
+  }
+  .btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  .btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  .btn-icon {
+    font-size: 1.4rem;
+    transition: transform 0.5s;
+  }
+  .btn:hover .btn-icon {
+    transform: rotate(360deg) scale(1.2);
+  }
+  
+  /* ===== Chart Section ===== */
+  .chart-section {
+    margin-top: 3rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.8rem 1.8rem var(--shadow);
+    animation: slideUp 0.8s ease-out;
+    z-index: 1;
+  }
+  .chart-section h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--green-dark);
+    font-size: 1.6rem;
+  }
+  .chart-section canvas {
+    width: 100% !important;
+    height: 320px !important;
+    display: block;
+    margin: auto;
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 600px) {
+    .eco-form { padding: 2rem 1.5rem; }
+    .btn { width: 100%; justify-content: center; }
+    .chart-section { padding: 1.5rem; }
+  }
+  

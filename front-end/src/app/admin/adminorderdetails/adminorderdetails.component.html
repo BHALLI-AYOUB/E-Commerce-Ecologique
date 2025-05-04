@@ -1,0 +1,74 @@
+<div class="eco-order-details">
+  <!-- Fond discret avec motif de feuilles -->
+  <div class="leaf-pattern"></div>
+
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <h1>
+    <span class="leaf-icon">🍃</span>
+    Détails de la Commande
+    <span class="leaf-icon">🍃</span>
+  </h1>
+
+  <ng-container *ngIf="orderItem.length; else loading">
+    <div *ngFor="let item of orderItem" class="item-details">
+      <!-- Graphique pour la progression de la commande -->
+      <section class="chart-section">
+        <h3>Progression de la Commande</h3>
+        <canvas id="orderDetailsChart-{{item.id}}"></canvas>
+      </section>
+
+      <div class="info-group">
+        <div class="info">
+          <h2>Informations sur la Commande</h2>
+          <p><strong>ID de l'article :</strong> {{ item.id }}</p>
+          <p><strong>Quantité :</strong> {{ item.quantity }}</p>
+          <p><strong>Prix Total :</strong> €{{ item.price.toFixed(2) }}</p>
+          <p><strong>Statut :</strong> 
+            <span class="status-tag {{ item.status | lowercase }}">{{ item.status }}</span>
+          </p>
+          <p><strong>Date de Commande :</strong> {{ item.createdAt | date: 'dd/MM/yyyy, HH:mm' }}</p>
+        </div>
+
+        <div class="info">
+          <h2>Informations sur l'Utilisateur</h2>
+          <p><strong>Nom :</strong> {{ item.user.name }}</p>
+          <p><strong>Email :</strong> {{ item.user.email }}</p>
+          <p><strong>Téléphone :</strong> {{ item.user.phoneNumber }}</p>
+          <p><strong>Rôle :</strong> {{ item.user.role }}</p>
+        </div>
+
+        <div class="info">
+          <h2>Adresse de Livraison</h2>
+          <p><strong>Pays :</strong> {{ item.user.address?.country }}</p>
+          <p><strong>Région :</strong> {{ item.user.address?.state }}</p>
+          <p><strong>Ville :</strong> {{ item.user.address?.city }}</p>
+          <p><strong>Rue :</strong> {{ item.user.address?.street }}</p>
+          <p><strong>Code Postal :</strong> {{ item.user.address?.zipCode }}</p>
+        </div>
+
+        <div class="info product-info">
+          <h2>Informations sur le Produit</h2>
+          <img [src]="item.product?.imageUrl" [alt]="item.product?.name" />
+          <p><strong>Nom :</strong> {{ item.product?.name }}</p>
+          <p><strong>Description :</strong> {{ item.product?.description }}</p>
+          <p><strong>Prix Unitaire :</strong> €{{ item.product?.price.toFixed(2) }}</p>
+        </div>
+      </div>
+
+      <div class="status-update">
+        <h3>Modifier le Statut</h3>
+        <select [(ngModel)]="selectedStatus[item.id]">
+          <option *ngFor="let status of OderStatus" [value]="status">{{ status }}</option>
+        </select>
+        <button class="btn-update" (click)="handleSubmitStatusChange(item.id)">
+          <span class="btn-icon">🔄</span> Mettre à jour
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <p class="loading">Chargement des détails de la commande…</p>
+  </ng-template>
+</div>

@@ -1,0 +1,214 @@
+/* ===== Theme Variables ===== */
+:root {
+    --green-dark:   #1e4620;
+    --green-medium: #60a96c;
+    --green-light:  #e3f6e3;
+    --accent:       #ffeb3b;
+    --white:        #ffffff;
+    --shadow:       rgba(30, 70, 32, 0.15);
+    --error-red:    #e53935;
+  }
+  
+  /* ===== Container ===== */
+  .eco-product-form {
+    position: relative;
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, var(--green-light), var(--white));
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem var(--shadow);
+    overflow: hidden;
+    animation: fadeInScale 0.8s ease-out;
+  }
+  
+  /* Leaf-pattern overlay */
+  .leaf-pattern {
+    position: absolute;
+    top: -70px; left: -70px;
+    width: 220%; height: 220%;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%2360a96c' opacity='0.07' d='M40 0 C50 20, 30 20, 40 0 Z'/%3E%3C/svg%3E");
+    background-size: 90px 90px;
+    transform: rotate(10deg);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* ===== Headings & Icons ===== */
+  .eco-product-form h2 {
+    position: relative;
+    font-size: 2.4rem;
+    color: var(--green-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px var(--shadow);
+    z-index: 1;
+  }
+  .leaf-icon {
+    display: inline-block;
+    animation: sway 3s ease-in-out infinite;
+  }
+  @keyframes sway {
+    0%,100% { transform: rotate(0deg); }
+    50%     { transform: rotate(8deg) translateY(-3px); }
+  }
+  
+  /* ===== Feedback Message ===== */
+  .message {
+    position: relative;
+    z-index: 1;
+    background: var(--accent);
+    color: var(--green-dark);
+    padding: 0.8rem 1rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 0.2rem 0.6rem rgba(0,0,0,0.1);
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  /* ===== Form Groups ===== */
+  .input-group {
+    position: relative;
+    margin-bottom: 1.8rem;
+    z-index: 1;
+  }
+  .input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--green-dark);
+  }
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    background: var(--white);
+    box-shadow: inset 0 0.2rem 0.5rem rgba(0,0,0,0.05);
+    transition: border-image 0.4s ease, box-shadow 0.3s ease;
+  }
+  .input-group input:focus,
+  .input-group select:focus,
+  .input-group textarea:focus {
+    outline: none;
+    border-image: linear-gradient(
+        to right,
+        var(--green-medium),
+        var(--accent),
+        var(--green-medium)
+      ) 1;
+    box-shadow: 0 0 0 0.2rem rgba(96,169,108,0.2);
+  }
+  .input-group input.invalid,
+  .input-group textarea.invalid {
+    border: 2px solid var(--error-red);
+    animation: shake 0.3s ease;
+  }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25%,75% { transform: translateX(-5px); }
+    50%     { transform: translateX(5px); }
+  }
+  
+  /* ===== File Input Styling ===== */
+  .file-group input[type="file"] {
+    cursor: pointer;
+    padding: 0.5rem;
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: inset 0 0.2rem 0.4rem rgba(0,0,0,0.05);
+  }
+  
+  /* ===== Submit Button ===== */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 1rem 1.6rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--green-medium);
+    border: none;
+    border-radius: 5rem;
+    box-shadow: 0 0.4rem 1rem var(--shadow);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+  }
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, var(--white) 10%, transparent 10.5%);
+    background-size: 10% 10%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    border-radius: 50%;
+    transition: transform 0.5s, opacity 0.5s;
+  }
+  .btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 0.6rem 1.2rem var(--shadow);
+  }
+  .btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  .btn-icon {
+    font-size: 1.4rem;
+    transition: transform 0.5s;
+  }
+  .btn:hover .btn-icon {
+    transform: rotate(360deg) scale(1.2);
+  }
+  
+  /* ===== Chart Section ===== */
+  .chart-section {
+    margin-top: 3rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.8rem 1.8rem var(--shadow);
+    animation: fadeInUp 0.8s ease-out;
+    z-index: 1;
+  }
+  .chart-section h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--green-dark);
+    font-size: 1.6rem;
+  }
+  .chart-section canvas {
+    width: 100% !important;
+    height: 320px !important;
+    display: block;
+    margin: auto;
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 600px) {
+    .eco-product-form { padding: 2rem 1.5rem; }
+    .btn { padding: 0.9rem; }
+    .chart-section { padding: 1.5rem; }
+  }
+  

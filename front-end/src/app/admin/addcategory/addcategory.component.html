@@ -1,0 +1,46 @@
+<div class="eco-form">
+  <!-- Superposition décorative subtile avec motif de feuilles -->
+  <div class="leaf-pattern"></div>
+
+  <!-- Message de retour -->
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <form [formGroup]="categoryForm" (ngSubmit)="handleSubmit()">
+    <h2>
+      <span class="leaf-icon">🍃</span>
+      Ajouter une Catégorie
+      <span class="leaf-icon">🍃</span>
+    </h2>
+
+    <div class="input-group">
+      <label for="name">Nom de la Catégorie</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Entrez une nouvelle catégorie"
+        formControlName="name"
+        [class.invalid]="
+          categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched
+        "
+      />
+      <div
+        class="error"
+        *ngIf="categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched"
+      >
+        Le nom est requis.
+      </div>
+    </div>
+
+    <button type="submit" class="btn" [disabled]="categoryForm.invalid">
+      <span class="btn-icon">➕</span>
+      Ajouter la Catégorie
+    </button>
+  </form>
+
+  <!-- Section graphique à thème écologique -->
+  <section class="chart-section">
+    <h3>Tendances des Nouvelles Catégories</h3>
+    <!-- Initialisé via Chart.js ou ng2-charts dans component.ts avec cet ID -->
+    <canvas id="categoryAddChart"></canvas>
+  </section>
+</div>

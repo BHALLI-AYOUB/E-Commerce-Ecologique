@@ -1,0 +1,329 @@
+/* --- Global Variables and Base Styles --- */
+:host {
+    /* Eco-friendly color palette */
+    --primary-green: #4CAF50; /* Vibrant green for accents */
+    --medium-green: #66BB6A; /* Slightly lighter green */
+    --light-green: #E8F5E9; /* Very light green for backgrounds */
+    --dark-green: #388E3C;  /* Darker green for text or borders */
+    --accent-brown: #8D6E63; /* Earthy brown */
+    --text-color: #333;
+    --text-light: #555;
+    --border-color: #d1e7d2; /* Light green border */
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --error-bg: #ffebee;
+    --error-text: #c62828;
+
+    /* Font */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean sans-serif */
+    display: block; /* Ensure component takes block layout */
+}
+
+/* --- Main Container --- */
+.profile-container {
+    max-width: 900px; /* Increased width for better layout */
+    margin: 3rem auto 5rem auto; /* More vertical spacing */
+    padding: 30px 40px; /* More padding */
+    background-color: #f9fef9; /* Very subtle green background */
+    border-radius: 12px; /* Softer corners */
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15); /* Softer, greener shadow */
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease-in-out; /* Smooth transition for potential future effects */
+}
+
+/* --- Welcome Message --- */
+.profile-welcome {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--dark-green);
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative; /* For potential icon positioning */
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--medium-green);
+}
+
+/* Optional: Simple CSS Leaf Icon */
+.leaf-icon::after {
+    content: '🌿'; /* Using emoji - consider SVG or font icon for better control */
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 24px;
+    color: var(--primary-green);
+    vertical-align: middle;
+}
+
+
+/* --- General Section Styling --- */
+.profile-section {
+    margin-bottom: 35px; /* Increased spacing between sections */
+    padding: 25px;
+}
+
+.profile-section h3 {
+    font-size: 22px;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--light-green);
+    font-weight: 500;
+}
+
+/* --- Card Styling --- */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.card:hover {
+    /* Subtle lift effect on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(76, 175, 80, 0.18);
+}
+
+
+/* --- Info Display (User, Address) --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Space between grid items */
+}
+
+.info-grid p {
+    margin: 0 0 8px 0; /* Reduced bottom margin */
+    line-height: 1.6;
+    color: var(--text-light);
+    font-size: 15px;
+}
+
+.info-label {
+    font-weight: 600; /* Bolder labels */
+    color: var(--dark-green);
+    margin-right: 8px;
+    display: inline-block; /* Ensure proper spacing */
+    min-width: 80px; /* Align values slightly */
+}
+
+.info-value {
+    color: var(--text-color);
+}
+
+.no-info-message {
+    color: var(--accent-brown);
+    background-color: #fffaf2; /* Light beige */
+    border: 1px dashed var(--accent-brown);
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+/* --- Buttons --- */
+.btn {
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 25px; /* Pill shape */
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 20px; /* Space above button */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-primary.btn-eco {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+.btn-primary.btn-eco:hover {
+    background-color: var(--dark-green);
+    box-shadow: 0 4px 10px rgba(56, 142, 60, 0.3); /* Darker green shadow */
+    transform: translateY(-2px);
+}
+
+.btn span { /* Style for text within button */
+    margin-left: 5px; /* Space between icon and text */
+}
+
+
+/* --- Order History --- */
+.order-history-section h3 {
+    /* Slightly different heading style maybe */
+    color: var(--accent-brown);
+}
+
+.order-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-item {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Space between image and details */
+    padding: 20px;
+    margin-bottom: 20px; /* Space between order items */
+    /* Inherits card styles (background, border, shadow, hover) */
+}
+
+.order-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* Prevents image stretching */
+    border-radius: 6px; /* Slightly rounded corners */
+    border: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.order-item-details {
+    flex: 1; /* Take remaining space */
+    display: flex;
+    flex-direction: column; /* Stack details vertically */
+    gap: 5px; /* Space between detail lines */
+}
+
+.order-item-details p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.order-item-details .info-label {
+     min-width: 70px; /* Adjust label width */
+     font-weight: 500;
+}
+
+.order-item-details .product-name {
+    font-weight: 600;
+    color: var(--primary-green);
+}
+
+.order-status {
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+/* Example Status Styling (Add more as needed) */
+.status-shipped { background-color: #e3f2fd; color: #1565c0; }
+.status-processing { background-color: #fff9c4; color: #f57f17; }
+.status-delivered { background-color: var(--light-green); color: var(--dark-green); }
+.status-cancelled { background-color: #ffebee; color: #b71c1c; }
+.status-pending { background-color: #eee; color: #666; }
+.status-unknown { background-color: #f5f5f5; color: #757575; }
+
+.order-price {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* --- Error Message --- */
+.error-message {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid var(--error-text);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* --- Pagination Container --- */
+.pagination-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Center pagination component */
+    padding: 10px 0;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 20px;
+        margin: 1.5rem auto 3rem auto;
+    }
+
+    .profile-welcome {
+        font-size: 24px;
+    }
+
+    .profile-section h3 {
+        font-size: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr; /* Stack info on smaller screens */
+        gap: 10px;
+    }
+
+    .order-item {
+        flex-direction: column; /* Stack image and details vertically */
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+     .order-item-image {
+        width: 100px; /* Slightly larger image when stacked */
+        height: 100px;
+        margin-bottom: 15px;
+    }
+
+    .order-item-details {
+        align-items: center; /* Center text details */
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 15px;
+        margin: 1rem auto 2rem auto;
+        border-radius: 8px;
+    }
+
+    .profile-welcome {
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+     .profile-section {
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 15px;
+        width: 100%; /* Make button full width */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .order-item {
+        padding: 15px;
+    }
+
+     .info-label{
+        display: block; /* Stack label above value */
+        margin-bottom: 2px;
+        min-width: auto;
+     }
+     .info-value{
+         display: block;
+     }
+
+     .info-grid p{
+         margin-bottom: 12px;
+     }
+}

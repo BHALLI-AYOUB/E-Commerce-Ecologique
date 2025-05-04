@@ -1,0 +1,48 @@
+<div class="eco-form">
+  <!-- Fond discret avec motif de feuilles -->
+  <div class="leaf-pattern"></div>
+
+  <!-- Message de retour -->
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <form [formGroup]="categoryForm" (ngSubmit)="handleSubmit()">
+    <h2>
+      <span class="leaf-icon">🌿</span>
+      Mettre à Jour la Catégorie
+      <span class="leaf-icon">🌿</span>
+    </h2>
+
+    <div class="input-group">
+      <label for="name">Nom de la Catégorie</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Entrez le nom de la catégorie"
+        formControlName="name"
+        [class.invalid]="
+          categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched
+        "
+      />
+      <div
+        class="error"
+        *ngIf="
+          categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched
+        "
+      >
+        Veuillez entrer un nom valide.
+      </div>
+    </div>
+
+    <button type="submit" class="btn" [disabled]="categoryForm.invalid">
+      <span class="btn-icon">✅</span>
+      Mettre à Jour la Catégorie
+    </button>
+  </form>
+
+  <!-- Graphique sur les performances éco -->
+  <section class="chart-section">
+    <h3>Performance de la Catégorie</h3>
+    <!-- Initialisé dans component.ts via Chart.js ou ng2-charts -->
+    <canvas id="categoryChart"></canvas>
+  </section>
+</div>

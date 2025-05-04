@@ -1,0 +1,72 @@
+<div class="eco-pagination">
+    <div class="pagination-container">
+      <!-- Previous page button -->
+      <button 
+        class="pagination-arrow prev-page" 
+        [disabled]="currentPage === 1" 
+        (click)="changePage(currentPage - 1)"
+        [class.disabled]="currentPage === 1">
+        <svg viewBox="0 0 24 24" class="pagination-icon">
+          <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path>
+        </svg>
+      </button>
+      
+      <!-- First page + leading ellipsis -->
+      <button 
+        *ngIf="pageNumbers.length > 5 && currentPage > 3" 
+        (click)="changePage(1)" 
+        [class.active]="1 === currentPage"
+        class="pagination-button">
+        1
+      </button>
+      <span 
+        *ngIf="pageNumbers.length > 5 && currentPage > 3" 
+        class="pagination-ellipsis">…</span>
+      
+      <!-- Windowed page numbers via slice pipe -->
+      <button 
+        *ngFor="let page of pageNumbers 
+                         | slice:(currentPage > 3 ? currentPage - 3 : 0)
+                                 :(currentPage < pageNumbers.length - 2 
+                                    ? currentPage + 2 
+                                    : pageNumbers.length)"
+        (click)="changePage(page)" 
+        [class.active]="page === currentPage"
+        class="pagination-button">
+        {{ page }}
+      </button>
+      
+      <!-- Trailing ellipsis + last page -->
+      <span 
+        *ngIf="pageNumbers.length > 5 && currentPage < pageNumbers.length - 2" 
+        class="pagination-ellipsis">…</span>
+      <button 
+        *ngIf="pageNumbers.length > 5 && currentPage < pageNumbers.length - 2" 
+        (click)="changePage(pageNumbers.length)" 
+        [class.active]="pageNumbers.length === currentPage"
+        class="pagination-button">
+        {{ pageNumbers.length }}
+      </button>
+      
+      <!-- Next page button -->
+      <button 
+        class="pagination-arrow next-page" 
+        [disabled]="currentPage === pageNumbers.length" 
+        (click)="changePage(currentPage + 1)"
+        [class.disabled]="currentPage === pageNumbers.length">
+        <svg viewBox="0 0 24 24" class="pagination-icon">
+          <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Page indicator -->
+    <div class="page-indicator">
+      <div class="leaf-indicator">
+        <svg viewBox="0 0 24 24" class="leaf-icon left">…</svg>
+        <span>Page {{currentPage}} of {{pageNumbers.length}}</span>
+        <svg viewBox="0 0 24 24" class="leaf-icon right">…</svg>
+      </div>
+    </div>
+  </div>
+  

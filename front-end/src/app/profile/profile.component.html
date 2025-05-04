@@ -1,0 +1,72 @@
+<div class="profile-container">
+
+    <h2 class="profile-welcome">Bienvenue, {{ userInfo?.name }}! <span class="leaf-icon"></span></h2>
+    <ng-container *ngIf="error; else profileContent">
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+    </ng-container>
+
+    <ng-template #profileContent>
+        <div *ngIf="userInfo" class="profile-details">
+
+            <section class="profile-section user-info-section card">
+                <h3>Vos Informations</h3>
+                <div class="info-grid">
+                    <p><strong class="info-label">Nom :</strong> <span class="info-value">{{ userInfo.name }}</span></p>
+                    <p><strong class="info-label">Email :</strong> <span class="info-value">{{ userInfo.email }}</span></p>
+                    <p><strong class="info-label">Téléphone :</strong> <span class="info-value">{{ userInfo.phoneNumber || 'Non fourni' }}</span></p>
+                </div>
+            </section>
+
+            <section class="profile-section address-section card">
+                <h3>Adresse de Livraison</h3>
+                <div *ngIf="userInfo.address; else noAddress" class="address-details info-grid">
+                    <p><strong class="info-label">Rue :</strong> <span class="info-value">{{ userInfo.address.street }}</span></p>
+                    <p><strong class="info-label">Ville :</strong> <span class="info-value">{{ userInfo.address.city }}</span></p>
+                    <p><strong class="info-label">État :</strong> <span class="info-value">{{ userInfo.address.state }}</span></p>
+                    <p><strong class="info-label">Code Postal :</strong> <span class="info-value">{{ userInfo.address.zipCode }}</span></p>
+                    <p><strong class="info-label">Pays :</strong> <span class="info-value">{{ userInfo.address.country }}</span></p>
+                </div>
+
+                <ng-template #noAddress>
+                    <p class="no-info-message">Aucune adresse enregistrée. Ajoutez-en une pour un passage en caisse plus rapide !</p>
+                </ng-template>
+
+                <button class="btn btn-primary btn-eco" (click)="handleAddressClick()">
+                    <span *ngIf="userInfo.address; else addIcon">✏️ Modifier l'adresse</span>
+                    <ng-template #addIcon>➕ Ajouter une adresse</ng-template>
+                </button>
+            </section>
+
+            <section class="profile-section order-history-section">
+                <h3>Historique des Commandes</h3>
+                <ul class="order-list" *ngIf="paginatedOrders && paginatedOrders.length > 0; else noOrders">
+                    <li *ngFor="let order of paginatedOrders" class="order-item card">
+                        <img class="order-item-image" [src]="order.product?.imageUrl || 'assets/images/placeholder-eco.png'" [alt]="order.product?.name || 'Image du produit'" />
+                        <div class="order-item-details">
+                            <p><strong class="info-label">Produit :</strong> <span class="info-value product-name">{{ order.product?.name || 'N/A' }}</span></p>
+                            <p><strong class="info-label">Statut :</strong> <span class="info-value order-status" [ngClass]="'status-' + (order.status?.toLowerCase() || 'unknown')">{{ order.status || 'Inconnu' }}</span></p>
+                            <p><strong class="info-label">Quantité :</strong> <span class="info-value">{{ order.quantity }}</span></p>
+                            <p><strong class="info-label">Prix :</strong> <span class="info-value order-price">{{ order.price | currency:'USD':'symbol' }}</span></p>
+                            <p *ngIf="order.orderId"><strong class="info-label">ID de Commande :</strong> <span class="info-value">{{order.orderId}}</span></p>
+                            <p *ngIf="order.orderDate"><strong class="info-label">Date :</strong> <span class="info-value">{{order.orderDate | date:'mediumDate'}}</span></p>
+                        </div>
+                    </li>
+                </ul>
+                <ng-template #noOrders>
+                    <p class="no-info-message">Vous n'avez pas encore passé de commandes. Trouvons quelque chose d'éco-responsable !</p>
+                </ng-template>
+
+                <div class="pagination-container" *ngIf="totalPages > 1">
+                    <app-pagination
+                        [currentPage]="currentPage"
+                        [totalPages]="totalPages"
+                        (pageChange)="onPageChange($event)">
+                    </app-pagination>
+                </div>
+            </section>
+
+        </div>
+    </ng-template>
+</div>

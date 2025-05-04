@@ -1,0 +1,38 @@
+<div class="admin-categories">
+  <!-- Superposition décorative avec motif de feuilles -->
+  <div class="leaf-pattern"></div>
+
+  <div class="header">
+    <h2>
+      <span class="leaf-icon">🍃</span>
+      Catégories
+      <span class="leaf-icon">🍃</span>
+    </h2>
+    <button class="btn add" (click)="addCategoty()">
+      <span class="btn-icon">➕</span>
+      Ajouter une Catégorie
+    </button>
+  </div>
+
+  <ul class="category-list">
+    <li *ngFor="let category of categories">
+      <span class="cat-name">{{ category.name }}</span>
+      <div class="actions">
+        <button class="btn edit" (click)="handleEdit(category.id)">
+          <span class="btn-icon">✏️</span>
+          Modifier
+        </button>
+        <button class="btn delete" (click)="handleDelete(category.id)">
+          <span class="btn-icon">🗑️</span>
+          Supprimer
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <section class="chart-section">
+    <h3>Répartition des Catégories</h3>
+    <!-- Initialisé dans component.ts via Chart.js ou ng2-charts -->
+    <canvas id="categoryChart"></canvas>
+  </section>
+</div>

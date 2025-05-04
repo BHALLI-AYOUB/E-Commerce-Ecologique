@@ -1,0 +1,49 @@
+<div class="admin eco-products">
+  <!-- Arrière-plan avec motif de feuilles -->
+  <div class="leaf-pattern"></div>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+  <div *ngIf="!error">
+    <!-- En-tête avec bouton d'ajout -->
+    <div class="header">
+      <h2>
+        <span class="leaf-icon">🍃</span>
+        Produits
+        <span class="leaf-icon">🍃</span>
+      </h2>
+      <button class="btn add" (click)="goToAddProduct()">
+        <span class="btn-icon">➕</span>
+        Ajouter un Produit
+      </button>
+    </div>
+
+    <!-- Graphique à thème écologique -->
+    <section class="chart-section">
+      <h3>Répartition par Catégorie de Produits</h3>
+      <!-- Initialisé dans component.ts via Chart.js ou ng2-charts -->
+      <canvas id="productDistributionChart"></canvas>
+    </section>
+
+    <!-- Liste des Produits -->
+    <ul class="product-list">
+      <li *ngFor="let product of products" class="product-item">
+        <span class="name">{{ product.name }}</span>
+        <div class="actions">
+          <button class="btn edit" (click)="handleEdit(product.id)">
+            <span class="btn-icon">✏️</span> Modifier
+          </button>
+          <button class="btn delete" (click)="handleDelete(product.id)">
+            <span class="btn-icon">🗑️</span> Supprimer
+          </button>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Pagination -->
+    <app-pagination
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (pageChange)="onPageChange($event)">
+    </app-pagination>
+  </div>
+</div>

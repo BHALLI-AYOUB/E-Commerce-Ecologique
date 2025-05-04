@@ -1,0 +1,233 @@
+/* Variables for consistent eco-theme */
+:root {
+    --eco-primary: #2e7d32;
+    --eco-secondary: #81c784;
+    --eco-accent: #4caf50;
+    --eco-light: #c8e6c9;
+    --eco-dark: #1b5e20;
+    --eco-gradient-start: #2e7d32;
+    --eco-gradient-end: #1b5e20;
+    --eco-text: #f1f8e9;
+    --eco-shadow: rgba(0, 77, 64, 0.2);
+}
+
+.eco-footer {
+    background: linear-gradient(to bottom, #f1f8e9, #e8f5e9);
+    color: #1b5e20;
+    padding: 0;
+    text-align: center;
+    position: static; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 -5px 15px var(--eco-shadow);
+    border-top: 1px solid var(--eco-light);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.footer-wave {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: -39px;
+    left: 0;
+    overflow: hidden;
+}
+
+.footer-wave svg {
+    width: 100%;
+    height: 100%;
+}
+
+.footer-content {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(27, 94, 32, 0.1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+li {
+    margin: 5px 15px;
+    position: relative;
+}
+
+.eco-link {
+    color: var(--eco-dark);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.eco-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--eco-primary);
+    transition: width 0.3s ease;
+}
+
+.eco-link:hover {
+    color: var(--eco-primary);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.eco-link:hover::after {
+    width: 100%;
+}
+
+.eco-link .link-text {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-info {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+/* Eco badge & icon */
+.eco-badge {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--eco-primary), var(--eco-dark));
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    z-index: 10;
+}
+
+.leaf-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leaf {
+    fill: white;
+}
+
+.eco-text {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Eco stats section */
+.eco-commitment {
+    margin: 15px 0;
+    padding: 15px 0;
+}
+
+.eco-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--eco-primary);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Eco certification badges */
+.eco-certification {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.eco-badge-small {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: var(--eco-primary);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    li {
+        margin: 8px 0;
+    }
+    
+    .eco-stats {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .eco-footer {
+        font-size: 14px;
+    }
+    
+    .stat-number {
+        font-size: 18px;
+    }
+    
+    .eco-badge {
+        padding: 3px 10px;
+        font-size: 10px;
+    }
+}

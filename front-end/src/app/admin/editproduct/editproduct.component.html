@@ -1,0 +1,77 @@
+<!-- component.html -->
+<div class="eco-edit-product">
+  <!-- Diagramme circulaire vert (HTML/SVG pur) -->
+  <div class="chart-container">
+    <h3>Score d'Impact Environnemental</h3>
+    <svg class="eco-donut-chart" viewBox="0 0 42 42">
+      <!-- cercle de fond -->
+      <circle class="donut-bg" cx="21" cy="21" r="15.9155"></circle>
+      <!-- cercle dynamique (80 % en exemple) -->
+      <circle class="donut-meter" cx="21" cy="21" r="15.9155" stroke-dasharray="80,100"></circle>
+      <!-- texte du pourcentage -->
+      <text class="donut-text" x="50%" y="50%" text-anchor="middle" dy=".3em">80%</text>
+    </svg>
+  </div>
+
+  <!-- Formulaire de modification du produit -->
+  <form [formGroup]="editProductForm" (ngSubmit)="handleSubmit()" class="eco-form">
+    <h2>Modifier le Produit</h2>
+    <p class="message" *ngIf="message">{{ message }}</p>
+
+    <div class="form-group file-group">
+      <input
+        type="file"
+        id="fileInput"
+        (change)="handleImageChange($event)"
+        class="file-input"
+      >
+      <label for="fileInput" class="file-label">📁 Télécharger l'image</label>
+      <div class="image-preview" *ngIf="imageUrl">
+        <img [src]="imageUrl" alt="Image du produit">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Catégorie</label>
+      <select formControlName="categoryId" id="category" class="select-input">
+        <option value="">Sélectionner une catégorie</option>
+        <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input
+        formControlName="name"
+        id="name"
+        type="text"
+        placeholder="Nom du produit"
+        class="text-input"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        formControlName="description"
+        id="description"
+        rows="4"
+        placeholder="Description"
+        class="textarea-input"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Prix</label>
+      <input
+        formControlName="price"
+        id="price"
+        type="number"
+        placeholder="Prix"
+        class="number-input"
+      >
+    </div>
+
+    <button type="submit" class="eco-button">Mettre à Jour le Produit</button>
+  </form>
+</div>
