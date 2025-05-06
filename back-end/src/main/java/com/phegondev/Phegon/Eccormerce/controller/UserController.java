@@ -28,4 +28,6 @@ public class UserController {
     public ResponseEntity<Response> getUserInfoAndOrderHistory(){
         return ResponseEntity.ok(userService.getUserInfoAndOrderHistory());
     }
+
+    //test from nizar
 }

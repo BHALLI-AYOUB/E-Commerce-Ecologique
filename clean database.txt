@@ -1,0 +1,43 @@
+-- Database cleanup script with foreign key constraint handling
+-- Run this before reimporting data
+
+-- Start a transaction for safety
+START TRANSACTION;
+
+-- First, disable foreign key checks to avoid constraint errors
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Delete data from tables in the correct order (child tables first)
+-- Order items table (which references products)
+DELETE FROM order_items;
+
+-- Orders table (if it exists and has relationships)
+-- Uncomment if needed:
+-- DELETE FROM orders;
+
+-- Products table (which references categories)
+DELETE FROM products;
+
+-- Categories table
+DELETE FROM categories;
+
+-- Reset auto-increment counters (optional)
+ALTER TABLE products AUTO_INCREMENT = 1;
+ALTER TABLE categories AUTO_INCREMENT = 1;
+-- Add other tables if needed:
+-- ALTER TABLE order_items AUTO_INCREMENT = 1;
+-- ALTER TABLE orders AUTO_INCREMENT = 1;
+
+-- Re-enable foreign key checks
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- Remove any existing stored procedure that might cause conflicts
+DROP PROCEDURE IF EXISTS InsertProductWithCategory;
+
+-- Commit the transaction
+COMMIT;
+
+-- Verify the tables are empty
+SELECT 'Products count:', COUNT(*) FROM products;
+SELECT 'Categories count:', COUNT(*) FROM categories;
+SELECT 'Order items count:', COUNT(*) FROM order_items;
