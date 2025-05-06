@@ -1,147 +1,147 @@
 <!-- product-list.component.html -->
 <div class="product-list eco-product-list">
-    <!-- Eco Badge -->
-    <!-- <div class="eco-badge">
-      <span class="eco-label">Eco-Friendly Shopping</span>
-      <div class="leaf-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M17 8C8 10 5.9 16.17 5.82 16.5c-.06-.33-1-6.5-10-6.5h18C19 5.95 19 2 12 2c4 0 8 2.5 8 7-3.5 1.5-5.5 5.5-5.5 9.5 2.5-3.5 5.5-6 9.5-6l-2.75-1.25L24 9c-2 2-3 6-3 9h-1.5C13 16 11 8 17 8z"/>
-        </svg>
-      </div>
+  <!-- Badge Écologique -->
+  <!-- <div class="eco-badge">
+    <span class="eco-label">Shopping Écologique</span>
+    <div class="leaf-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M17 8C8 10 5.9 16.17 5.82 16.5c-.06-.33-1-6.5-10-6.5h18C19 5.95 19 2 12 2c4 0 8 2.5 8 7-3.5 1.5-5.5 5.5-5.5 9.5 2.5-3.5 5.5-6 9.5-6l-2.75-1.25L24 9c-2 2-3 6-3 9h-1.5C13 16 11 8 17 8z"/>
+      </svg>
     </div>
-   -->
-    <!-- Environmental Impact Chart -->
-    <div class="eco-impact-chart">
-      <h3>Environmental Impact</h3>
-      <div class="chart-container">
-        <div class="chart-item">
-          <div class="chart-label">CO₂ Reduced</div>
-          <div class="chart-circle">
-            <svg viewBox="0 0 36 36" class="circular-chart">
-              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-              <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-              <text x="18" y="20.35" class="percentage">75%</text>
-            </svg>
-          </div>
-        </div>
-        
-        <div class="chart-item">
-          <div class="chart-label">Water Saved</div>
-          <div class="chart-circle">
-            <svg viewBox="0 0 36 36" class="circular-chart">
-              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-              <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-              <text x="18" y="20.35" class="percentage">60%</text>
-            </svg>
-          </div>
-        </div>
-        
-        <div class="chart-item">
-          <div class="chart-label">Eco Materials</div>
-          <div class="chart-circle">
-            <svg viewBox="0 0 36 36" class="circular-chart">
-              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-              <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-              <text x="18" y="20.35" class="percentage">90%</text>
-            </svg>
-          </div>
+  </div>
+ -->
+  <!-- Graphique d'Impact Environnemental -->
+  <div class="eco-impact-chart">
+    <h3>Impact Environnemental</h3>
+    <div class="chart-container">
+      <div class="chart-item">
+        <div class="chart-label">CO₂ Réduit</div>
+        <div class="chart-circle">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.35" class="percentage">75%</text>
+          </svg>
         </div>
       </div>
-    </div>
-  
-    <!-- Product Filters -->
-    <!-- <div class="eco-filters">
-      <div class="filter-pill active">All Products</div>
-      <div class="filter-pill">Most Sustainable</div>
-      <div class="filter-pill">Carbon Neutral</div>
-      <div class="filter-pill">Zero Waste</div>
-      <div class="filter-pill">Fair Trade</div>
-    </div> -->
-  
-    <!-- Product Grid -->
-    <div class="products-container">
-      <div *ngFor="let product of products" class="product-item">
-        <div class="product-card" (click)="goToProductDetailsPage(product.id)">
-          <!-- Eco-Friendly Badge -->
-          <div class="eco-tag" *ngIf="product.price > 50">
-            <span>Eco</span>
-          </div>
-          
-          <!-- Product Image -->
-          <div class="image-container">
-            <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
-            <div class="image-overlay">
-              <div class="quick-view-btn">Quick View</div>
-            </div>
-          </div>
-          
-          <!-- Product Info -->
-          <div class="product-info">
-            <div class="product-category">Sustainable Living</div>
-            <h3 class="product-name">{{product.name}}</h3>
-            <p class="product-description">{{product.description}}</p>
-            
-            <!-- Eco Ratings -->
-            <div class="eco-rating">
-              <div class="eco-stars">
-                <span class="eco-star filled"></span>
-                <span class="eco-star filled"></span>
-                <span class="eco-star filled"></span>
-                <span class="eco-star" [class.filled]="product.price > 30"></span>
-                <span class="eco-star" [class.filled]="product.price > 60"></span>
-              </div>
-              <span class="eco-rating-label">Eco Rating</span>
-            </div>
-            
-            <div class="product-price">{{product.price.toFixed(2) | currency}}</div>
-          </div>
+      
+      <div class="chart-item">
+        <div class="chart-label">Eau Économisée</div>
+        <div class="chart-circle">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.35" class="percentage">60%</text>
+          </svg>
         </div>
-  
-        <!-- Cart Controls -->
-        <div class="cart-controls">
-          <ng-container *ngIf="inInCart(product); else addToCartBtn">
-            <div class="quantity-controls">
-              <button class="quantity-btn decrement" (click)="decrementItem(product)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </button>
-              <span class="quantity-display">{{getCartItem(product)?.quantity}}</span>
-              <button class="quantity-btn increment" (click)="incrementItem(product)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </button>
-            </div>
-          </ng-container>
-  
-          <ng-template #addToCartBtn>
-            <button class="add-to-cart-btn" (click)="addToCart(product)">
-              <span class="btn-text">Add To Cart</span>
-              <span class="btn-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
-                  <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-8-4h10l2-11H6L4 2H0v2h3l4 13zm0-3l-1-6h12l-1 6H8z" fill="currentColor"/>
-                </svg>
-              </span>
-            </button>
-          </ng-template>
-        </div>
-  
-        <!-- Eco Benefits -->
-        <div class="eco-benefits">
-          <div class="benefit-tag">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
-              <path d="M20.8 5.6C20 4.8 18.6 4 17 4s-3 .8-3.8 1.6c-.8-.8-2.2-1.6-3.8-1.6s-3 .8-3.8 1.6C4.8 4.8 3.4 4 1.8 4S0 4.8-.8 5.6L0 6.4C1.2 5.6 2.4 5 3.6 5c1.8 0 3 .8 3.8 1.6C8.2 5.8 9.4 5 11 5c1.8 0 3 .8 3.8 1.6.8-.8 2-1.6 3.8-1.6 1.2 0 2.4.6 3.6 1.4l.6-.8z" fill="currentColor"/>
-            </svg>
-            <span>Recyclable</span>
-          </div>
-          <div class="benefit-tag">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
-              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm4-8c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4 4 1.8 4 4z" fill="currentColor"/>
-            </svg>
-            <span>Organic</span>
-          </div>
+      </div>
+      
+      <div class="chart-item">
+        <div class="chart-label">Matériaux Écologiques</div>
+        <div class="chart-circle">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.35" class="percentage">90%</text>
+          </svg>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Filtres de Produits -->
+  <!-- <div class="eco-filters">
+    <div class="filter-pill active">Tous les Produits</div>
+    <div class="filter-pill">Les Plus Durables</div>
+    <div class="filter-pill">Carbone Neutre</div>
+    <div class="filter-pill">Zéro Déchet</div>
+    <div class="filter-pill">Commerce Équitable</div>
+  </div> -->
+
+  <!-- Grille des Produits -->
+  <div class="products-container">
+    <div *ngFor="let product of products" class="product-item">
+      <div class="product-card" (click)="goToProductDetailsPage(product.id)">
+        <!-- Badge Écologique -->
+        <div class="eco-tag" *ngIf="product.price > 50">
+          <span>Écologique</span>
+        </div>
+        
+        <!-- Image du Produit -->
+        <div class="image-container">
+          <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
+          <div class="image-overlay">
+            <div class="quick-view-btn">Vue Rapide</div>
+          </div>
+        </div>
+        
+        <!-- Informations sur le Produit -->
+        <div class="product-info">
+          <div class="product-category">Vie Durable</div>
+          <h3 class="product-name">{{product.name}}</h3>
+          <p class="product-description">{{product.description}}</p>
+          
+          <!-- Évaluations Écologiques -->
+          <div class="eco-rating">
+            <div class="eco-stars">
+              <span class="eco-star filled"></span>
+              <span class="eco-star filled"></span>
+              <span class="eco-star filled"></span>
+              <span class="eco-star" [class.filled]="product.price > 30"></span>
+              <span class="eco-star" [class.filled]="product.price > 60"></span>
+            </div>
+            <span class="eco-rating-label">Évaluation Écologique</span>
+          </div>
+          
+          <div class="product-price">{{product.price.toFixed(2) | currency}}</div>
+        </div>
+      </div>
+
+      <!-- Contrôles du Panier -->
+      <div class="cart-controls">
+        <ng-container *ngIf="inInCart(product); else addToCartBtn">
+          <div class="quantity-controls">
+            <button class="quantity-btn decrement" (click)="decrementItem(product)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <span class="quantity-display">{{getCartItem(product)?.quantity}}</span>
+            <button class="quantity-btn increment" (click)="incrementItem(product)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </ng-container>
+
+        <ng-template #addToCartBtn>
+          <button class="add-to-cart-btn" (click)="addToCart(product)">
+            <span class="btn-text">Ajouter au Panier</span>
+            <span class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-8-4h10l2-11H6L4 2H0v2h3l4 13zm0-3l-1-6h12l-1 6H8z" fill="currentColor"/>
+              </svg>
+            </span>
+          </button>
+        </ng-template>
+      </div>
+
+      <!-- Avantages Écologiques -->
+      <div class="eco-benefits">
+        <div class="benefit-tag">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
+            <path d="M20.8 5.6C20 4.8 18.6 4 17 4s-3 .8-3.8 1.6c-.8-.8-2.2-1.6-3.8-1.6s-3 .8-3.8 1.6C4.8 4.8 3.4 4 1.8 4S0 4.8-.8 5.6L0 6.4C1.2 5.6 2.4 5 3.6 5c1.8 0 3 .8 3.8 1.6C8.2 5.8 9.4 5 11 5c1.8 0 3 .8 3.8 1.6.8-.8 2-1.6 3.8-1.6 1.2 0 2.4.6 3.6 1.4l.6-.8z" fill="currentColor"/>
+          </svg>
+          <span>Recyclable</span>
+        </div>
+        <div class="benefit-tag">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm4-8c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4 4 1.8 4 4z" fill="currentColor"/>
+          </svg>
+          <span>Bio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

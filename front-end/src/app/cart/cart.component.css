@@ -480,3 +480,192 @@ body {
   color: var(--primary-dark);
 }
 
+
+/* Base styles for the eco-cart */
+.eco-cart-container {
+  background-color: #f4f9f4;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.eco-cart-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.eco-cart-header {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.eco-cart-icon {
+  color: #7DCE13; /* Green color for eco theme */
+}
+
+.eco-cart-title {
+  font-size: 2em;
+  color: #3e8e41; /* Dark green color */
+  margin: 10px 0;
+}
+
+.eco-cart-subtitle {
+  font-size: 1.1em;
+  color: #7DCE13;
+  font-weight: bold;
+}
+
+/* Cart Items List */
+.eco-cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.eco-cart-item {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #e3e3e3;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+}
+
+.eco-item-image img {
+  max-width: 100px;
+  border-radius: 8px;
+}
+
+.eco-item-details {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+.eco-item-name {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.eco-item-description {
+  font-size: 1em;
+  color: #777;
+}
+
+.eco-item-price {
+  font-size: 1.2em;
+  color: #3e8e41;
+  font-weight: bold;
+}
+
+.eco-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.eco-btn-checkout {
+  background-color: #7DCE13; /* Eco green color */
+}
+
+.eco-btn-clear {
+  background-color: #e74c3c;
+  display: flex; /* Red color for clear button */
+}
+
+.eco-cart-summary {
+  margin-top: 20px;
+}
+
+.eco-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 1.2em;
+}
+
+.eco-summary-row span {
+  font-weight: bold;
+}
+
+.eco-footer {
+  margin-top: 30px;
+  text-align: center;
+  color: #7DCE13;
+}
+
+/* Decorative Elements - Leaves */
+.eco-leaf-decor {
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(125, 206, 19, 0.15);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.eco-leaf-decor.top-left {
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+}
+
+.eco-leaf-decor.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+}
+.co2-sauve {
+  color: #4CAF50;  /* Vert pour CO₂ Sauvé */
+}
+
+.eau-sauvee {
+  color: #2196F3;  /* Bleu pour Eau Sauvée */
+}
+
+.plastique-reduit {
+  color: #FF9800;  /* Orange pour Plastique Réduit */
+}
+.eco-cart-actions {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically */
+  gap: 30px; /* Space between the buttons */
+  flex-direction: row; /* Align buttons horizontally (default behavior) */
+  text-align: center; /* Center text inside buttons */
+}
+
+.eco-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+}
+
+.eco-btn .eco-btn-icon {
+  margin-left: 10px;
+}
+
+.eco-btn:hover {
+  background-color: #45a049; /* Darker green when hovering */
+}
+
+.eco-btn-clear {
+  background-color: #f44336; /* Red background for "Vider le Panier" */
+}
+
+.eco-btn-clear:hover {
+  background-color: #d32f2f; /* Darker red when hovering */
+}
