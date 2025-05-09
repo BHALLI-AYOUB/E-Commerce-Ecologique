@@ -18,6 +18,7 @@ import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { EditproductComponent } from './admin/editproduct/editproduct.component';
 import { AdminorderComponent } from './admin/adminorder/adminorder.component';
 import { AdminorderdetailsComponent } from './admin/adminorderdetails/adminorderdetails.component';
+import { RecommendationSliderComponent } from './recommendation-slider/recommendation-slider.component';
 
 export const routes: Routes = [
     /**PUBLIC ROUTES */
@@ -45,9 +46,6 @@ export const routes: Routes = [
     {path: 'admin/edit-product/:productId', component: EditproductComponent, canActivate:[adminGuard]},
     {path: 'admin/orders', component: AdminorderComponent, canActivate:[adminGuard]},
     {path: 'admin/order-details/:orderId', component: AdminorderdetailsComponent, canActivate:[adminGuard]},
-
-
-
 
     /**WIDE CARD */
     {path: '', redirectTo: '/home', pathMatch: 'full' },

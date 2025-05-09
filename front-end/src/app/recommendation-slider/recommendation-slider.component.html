@@ -1,0 +1,87 @@
+<div class="recommendation-section">
+   
+  
+    <!-- Impact Environnemental Chart -->
+    <div class="eco-impact-chart">
+      <h3>Impact Environnemental</h3>
+      <div class="chart-container">
+        <div class="chart-item">
+          <div class="chart-label">CO₂ Réduit</div>
+          <div class="chart-circle">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <text x="18" y="20.35" class="percentage">75%</text>
+            </svg>
+          </div>
+        </div>
+        
+      
+        
+      
+  
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Chargement des recommandations...</p>
+    </div>
+  
+    <!-- Error State -->
+    <div *ngIf="error" class="error-container">
+      <p>Impossible de charger les recommandations. Veuillez réessayer plus tard.</p>
+      <button class="retry-btn" (click)="loadRecommendations()">Réessayer</button>
+    </div>
+  
+    <!-- Recommendations Slider -->
+    <div *ngIf="!loading && !error" class="recommendations-slider">
+      <div class="product-cards">
+        <div *ngFor="let product of recommendations.slice(0, productsToShow)" class="product-card">
+          <!-- Eco Tag -->
+          <div class="eco-tag" *ngIf="product.itemPrice > 50">
+            <span>Écologique</span>
+          </div>
+          
+          <!-- Product Image -->
+          <div class="image-container" (click)="goToProductDetailsPage(product.itemId)">
+            <img [src]="product.itemImage" [alt]="product.itemName" class="product-image">
+            <div class="image-overlay">
+              <div class="quick-view-btn">Vue Rapide</div>
+            </div>
+          </div>
+          
+          <!-- Product Info -->
+          <div class="product-info">
+            <div class="product-category">{{product.itemCategory || 'Vie Durable'}}</div>
+            <h3 class="product-name">{{product.itemName}}</h3>
+            <p class="product-description">{{product.itemDescription}}</p>
+            
+            <!-- Eco Rating -->
+            <div class="eco-rating">
+              <div class="eco-stars">
+                <span class="eco-star filled"></span>
+                <span class="eco-star filled"></span>
+                <span class="eco-star filled"></span>
+                <span class="eco-star" [class.filled]="product.itemPrice > 30"></span>
+                <span class="eco-star" [class.filled]="product.itemPrice > 60"></span>
+              </div>
+              <span class="eco-rating-label">Évaluation Écologique</span>
+            </div>
+            
+            <div class="product-price">{{product.itemPrice.toFixed(2) | currency}}</div>
+          </div>
+          
+          <!-- Add to Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart-btn" (click)="addToCart(product)">
+              <span class="btn-text">Ajouter au Panier</span>
+              <span class="btn-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                  <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-8-4h10l2-11H6L4 2H0v2h3l4 13zm0-3l-1-6h12l-1 6H8z" fill="currentColor"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

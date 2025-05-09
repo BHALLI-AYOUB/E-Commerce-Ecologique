@@ -114,7 +114,20 @@
       </div>
     </div>
 
-    Produits éco
+    <!-- Debug panel -->
+    <div *ngIf="debugMode" class="debug-panel" style="background:#f8f8f8; border:1px solid #ddd; padding:10px; margin:10px 0; font-size:12px;">
+      <h4>Débogage Recommandations</h4>
+      <p>ID Utilisateur actuel: <strong>{{ userId }}</strong> | Timestamp: {{ currentTimestamp }}</p>
+      <button (click)="reloadUserAndRecommendations()" class="debug-btn">Recharger Utilisateur</button>
+      <button (click)="changeTestUser(1)" class="debug-btn">Test User 1</button>
+      <button (click)="changeTestUser(3)" class="debug-btn">Test User 3</button>
+      <button (click)="changeTestUser(5)" class="debug-btn">Test User 5</button>
+    </div>
+
+    <!-- Composant de recommandation corrigé - timestamp supprimé -->
+    <app-recommendation-slider [userId]="userId"></app-recommendation-slider>
+
+    <!-- Produits éco -->
     <div class="product-section">
       <h3>Produits Durables</h3>
       <app-productlist [products]="products"></app-productlist>
