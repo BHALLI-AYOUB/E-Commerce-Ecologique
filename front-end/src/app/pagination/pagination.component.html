@@ -25,11 +25,8 @@
       
       <!-- Windowed page numbers via slice pipe -->
       <button 
-        *ngFor="let page of pageNumbers 
-                         | slice:(currentPage > 3 ? currentPage - 3 : 0)
-                                 :(currentPage < pageNumbers.length - 2 
-                                    ? currentPage + 2 
-                                    : pageNumbers.length)"
+        *ngFor="let page of pages"
+
         (click)="changePage(page)" 
         [class.active]="page === currentPage"
         class="pagination-button">

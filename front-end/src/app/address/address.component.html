@@ -9,10 +9,10 @@
           <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"></path>
         </svg>
       </div>
-      <h2 class="eco-title">{{isEditMode? 'Edit Address':'Add Address'}}</h2>
-      <p class="eco-subtitle">Please fill in your shipping details</p>
+      <h2 class="eco-title">{{isEditMode ? 'Modifier l’adresse' : 'Ajouter une adresse'}}</h2>
+      <p class="eco-subtitle">Veuillez remplir vos informations de livraison</p>
     </div>
-    
+
     <div class="eco-alert" *ngIf="error">
       <div class="eco-alert-icon">
         <svg viewBox="0 0 24 24" class="eco-svg">
@@ -21,108 +21,68 @@
       </div>
       <p class="eco-alert-text">{{error}}</p>
     </div>
-    
+
     <form [formGroup]="addressForm" (ngSubmit)="handleSubmit()" class="eco-form">
       <div class="eco-form-row">
         <div class="eco-form-group">
-          <label for="street" class="eco-label">Street Address</label>
+          <label for="street" class="eco-label">Adresse</label>
           <div class="eco-input-wrapper">
             <input id="street" type="text" formControlName="street" class="eco-input" required>
-            <div class="eco-input-icon">
-              <svg viewBox="0 0 24 24" class="eco-svg">
-                <path d="M12,3L2,12h3v8h6v-6h2v6h6v-8h3L12,3z"></path>
-              </svg>
-            </div>
-          </div>
-          <div *ngIf="addressForm.get('street')?.invalid && addressForm.get('street')?.touched" class="eco-error">
-            Street address is required
           </div>
         </div>
       </div>
-      
+
       <div class="eco-form-row">
         <div class="eco-form-group">
-          <label for="city" class="eco-label">City</label>
+          <label for="city" class="eco-label">Ville</label>
           <div class="eco-input-wrapper">
             <input id="city" type="text" formControlName="city" class="eco-input" required>
-            <div class="eco-input-icon">
-              <svg viewBox="0 0 24 24" class="eco-svg">
-                <path d="M15,11V5l-3,-3L9,5v2H3v14h18V11H15zM7,19H5v-2h2V19zM7,15H5v-2h2V15zM7,11H5V9h2V11zM13,19h-2v-2h2V19zM13,15h-2v-2h2V15zM13,11h-2V9h2V11zM13,7h-2V5h2V7zM19,19h-2v-2h2V19zM19,15h-2v-2h2V15z"></path>
-              </svg>
-            </div>
-          </div>
-          <div *ngIf="addressForm.get('city')?.invalid && addressForm.get('city')?.touched" class="eco-error">
-            City is required
           </div>
         </div>
       </div>
-      
+
       <div class="eco-form-row eco-form-row-split">
         <div class="eco-form-group">
-          <label for="state" class="eco-label">State</label>
+          <label for="state" class="eco-label">Région / État</label>
           <div class="eco-input-wrapper">
             <input id="state" type="text" formControlName="state" class="eco-input" required>
-            <div class="eco-input-icon">
-              <svg viewBox="0 0 24 24" class="eco-svg">
-                <path d="M14,6L14,4H5v17h2v-7h5v2h2v-2h2v-2h-2V6H14zM12,6v6H7V6H12z"></path>
-              </svg>
-            </div>
-          </div>
-          <div *ngIf="addressForm.get('state')?.invalid && addressForm.get('state')?.touched" class="eco-error">
-            State is required
           </div>
         </div>
-        
+
         <div class="eco-form-group">
-          <label for="zipCode" class="eco-label">ZIP Code</label>
+          <label for="zipCode" class="eco-label">Code postal</label>
           <div class="eco-input-wrapper">
             <input id="zipCode" type="number" formControlName="zipCode" class="eco-input" required>
-            <div class="eco-input-icon">
-              <svg viewBox="0 0 24 24" class="eco-svg">
-                <path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"></path>
-              </svg>
-            </div>
-          </div>
-          <div *ngIf="addressForm.get('zipCode')?.invalid && addressForm.get('zipCode')?.touched" class="eco-error">
-            ZIP Code is required
           </div>
         </div>
       </div>
-      
+
       <div class="eco-form-row">
         <div class="eco-form-group">
-          <label for="country" class="eco-label">Country</label>
+          <label for="country" class="eco-label">Pays</label>
           <div class="eco-input-wrapper">
             <input id="country" type="text" formControlName="country" class="eco-input" required>
-            <div class="eco-input-icon">
-              <svg viewBox="0 0 24 24" class="eco-svg">
-                <path d="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM11,19.93c-3.95,-0.49 -7,-3.85 -7,-7.93 0,-0.62 0.08,-1.21 0.21,-1.79L9,15v1c0,1.1 0.9,2 2,2v1.93zM17.9,17.39c-0.26,-0.81 -1,-1.39 -1.9,-1.39h-1v-3c0,-0.55 -0.45,-1 -1,-1H8v-2h2c0.55,0 1,-0.45 1,-1V7h2c1.1,0 2,-0.9 2,-2v-0.41c2.93,1.19 5,4.06 5,7.41 0,2.08 -0.8,3.97 -2.1,5.39z"></path>
-              </svg>
-            </div>
-          </div>
-          <div *ngIf="addressForm.get('country')?.invalid && addressForm.get('country')?.touched" class="eco-error">
-            Country is required
           </div>
         </div>
       </div>
-      
+
       <div class="eco-chart-section">
-        <div class="eco-chart-title">Your Carbon Footprint</div>
+        <div class="eco-chart-title">Votre empreinte carbone</div>
         <div class="eco-chart-container">
           <div class="eco-chart-bar">
             <div class="eco-chart-fill" style="width:30%"></div>
           </div>
           <div class="eco-chart-labels">
-            <span>Low</span>
-            <span>Average</span>
-            <span>High</span>
+            <span>Faible</span>
+            <span>Moyenne</span>
+            <span>Élevée</span>
           </div>
-          <div class="eco-chart-text">Using eco-friendly shipping reduces your carbon footprint</div>
+          <div class="eco-chart-text">L’expédition écologique réduit votre empreinte carbone</div>
         </div>
       </div>
-      
+
       <button type="submit" class="eco-button">
-        <span class="eco-button-text">{{isEditMode? 'Update Address':'Save Address'}}</span>
+        <span class="eco-button-text">{{isEditMode ? 'Mettre à jour' : 'Enregistrer l’adresse'}}</span>
         <span class="eco-button-icon">
           <svg viewBox="0 0 24 24" class="eco-svg">
             <path d="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41,-1.41z"></path>

@@ -403,3 +403,70 @@ input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px var(--input-bg) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: green ;
+    --text-color: blue;
+    --card-color: #2b2b2b;
+    /* ajuster les autres couleurs */
+  }
+}
+.eco-button::before {
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@media (max-height: 600px) {
+  .eco-address-card {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+.eco-input.error {
+  border-color: var(--error-color);
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%, 75% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+}
+
+.eco-button {
+  background: linear-gradient(135deg, #4CAF50, #FFEB3B);
+  border: 1px solid #4CAF50;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.eco-button:hover {
+  transform: scale(1.05);
+}
+.eco-input {
+  border: 2px solid #C8E6C9;
+}
+
+.eco-input:focus {
+  border-color: #FFEB3B;
+  box-shadow: 0 0 0 4px rgba(255, 235, 59, 0.3);
+}
+
+.eco-alert {
+  background-color: rgba(244, 67, 54, 0.1);
+  border-left: 4px solid #F44336;
+}
+.eco-title {
+  color: var(--text-green); /* Couleur pour le titre */
+}
+
+.eco-subtitle {
+  color: var(--text-color); /* Couleur pour le sous-titre */
+}
+
+.eco-label {
+  color: var(--text-dark); /* Couleur pour les étiquettes des champs */
+}

@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify 
 import pickle
 import numpy as np
 import pymysql
@@ -26,9 +26,8 @@ DB_CONFIG = {
     'cursorclass': pymysql.cursors.DictCursor
 }
 
-MODEL_PATH = r'E:\Ecommerce_Apk\E-Commerce-Ecologique\sentence_transformer_model.pkl'
+MODEL_PATH = r'C:\Users\HP\Downloads\E-Commerce-Ecologique\sentence_transformer_model.pkl'
 DEFAULT_EMBEDDING_DIM = 384
-
 # Créer le modèle par défaut si nécessaire
 if not os.path.exists(MODEL_PATH):
     try:

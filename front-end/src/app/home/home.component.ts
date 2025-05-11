@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   products: any[] = [];
   currentPage = 1;
   totalPages = 0;
-  itemsPerPage = 8;
+  itemsPerPage = 20;
   error: any = null;
   loadingUser = true;
   userError = false;

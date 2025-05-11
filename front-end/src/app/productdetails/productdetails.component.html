@@ -36,24 +36,24 @@
         <div class="eco-savings">Économise 2,4 kg de CO₂</div>
       </div>
 
-      <div class="eco-impact">
+      <!-- <div class="eco-impact">
         <div class="impact-chart">
           <div class="chart-bar">
             <div class="chart-fill" style="width: 75%"></div>
           </div>
           <div class="chart-label">75 % d'impact environnemental en moins</div>
         </div>
-      </div>
+      </div> -->
 
       <div class="action-section">
         <ng-container *ngIf="cartItem; else addToCartBtn">
           <div class="quantity-controls">
             <button class="qty-btn decrease" (click)="decrementItem()">
-              <span class="btn-icon">-</span>
+              <span class="btn-icon">➖</span>
             </button>
             <span class="quantity">{{cartItem.quantity}}</span>
             <button class="qty-btn increase" (click)="incrementItem()">
-              <span class="btn-icon">+</span>
+              <span class="btn-icon">➕</span>
             </button>
           </div>
         </ng-container>
