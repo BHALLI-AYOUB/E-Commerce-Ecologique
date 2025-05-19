@@ -19,7 +19,7 @@ export class RecommendationSliderComponent implements OnInit, OnChanges {
   loading = true;
   error = false;
   errorMessage = '';
-  productsToShow = 4;
+  productsToShow = 25;
   retryCount = 0;
   maxRetries = 2;
   currentUserId: number | null = null;
