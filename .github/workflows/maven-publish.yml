@@ -31,6 +31,12 @@ jobs:
         run: mvn clean install
         working-directory: ./back-end  # Run Maven from backend directory
 
+      - name: List files after build (debug)
+        run: |
+          echo "Contents of back-end/target:"
+          dir back-end\target
+        shell: cmd
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -56,9 +62,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.__clientidsecretname__ }}
-          tenant-id: ${{ secrets.__tenantidsecretname__ }}
-          subscription-id: ${{ secrets.__subscriptionidsecretname__ }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
