@@ -27,8 +27,7 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
-        working-directory: ./back-end  # Navigate to backend directory
-        run: mvn clean install
+        run: mvn clean install -f back-end/pom.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
