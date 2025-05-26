@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'back-end/**'  # Only trigger when backend files change
   workflow_dispatch:
 
 jobs:
@@ -25,13 +27,15 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: |
+          cd back-end
+          mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/back-end/target/*.jar'  # Updated path
 
   deploy:
     runs-on: windows-latest
@@ -52,9 +56,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AD5BFB4C8EAE4F6487D38B2ACD20CF8A }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_5B493873FA1B4C6E8C09A5A4310F2221 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3A1AE22A96534A1B8CE9360BE151C4C5 }}
+          client-id: ${{ secrets.__clientidsecretname__ }}
+          tenant-id: ${{ secrets.__tenantidsecretname__ }}
+          subscription-id: ${{ secrets.__subscriptionidsecretname__ }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -63,4 +67,3 @@ jobs:
           app-name: 'Eco-Backend'
           slot-name: 'Production'
           package: '*.jar'
-          
